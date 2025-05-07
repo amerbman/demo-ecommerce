@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import LogoFlora from './LogoFlora';
 import LogoFlosoft from './LogoFlosoft';
 import Image from 'next/image';
@@ -6,6 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Header: React.FC = () => {
+    // State for mobile menu visibility
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Toggle mobile menu
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
     return (
         <nav className="bg-white shadow-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
@@ -15,7 +25,7 @@ const Header: React.FC = () => {
                         <LogoFlora />
                         <LogoFlosoft />
                     </div>
-                    <div className="text-gray-600 text-sm text-center w-full ">
+                    <div className="text-gray-600 text-sm text-center w-full">
                         Sold and Distributed by SSBTE
                         <a href="https://ssbte.net" target="_blank" rel="noopener noreferrer" className="ml-1 text-gray-800 hover:text-red-600">
                             <Image 
@@ -31,6 +41,7 @@ const Header: React.FC = () => {
 
                 {/* Right Side: Navigation and Cart */}
                 <div className="flex items-center space-x-8">
+                    {/* Desktop Navigation */}
                     <div className="hidden md:flex space-x-8">
                         {['Home', 'Shop', 'Categories', 'About', 'Contact'].map((item) => (
                             <a 
@@ -51,11 +62,29 @@ const Header: React.FC = () => {
                     </button>
 
                     {/* Mobile Menu Button */}
-                    <button className="md:hidden text-gray-700 hover:text-red-600">
+                    <button 
+                        onClick={toggleMobileMenu} 
+                        className="md:hidden text-gray-700 hover:text-red-600"
+                    >
                         <FontAwesomeIcon icon={faBars} className="text-2xl" />
                     </button>
                 </div>
             </div>
+
+            {/* Mobile Menu */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden bg-white shadow-md rounded-md mt-2 absolute right-4 top-20 z-50 p-4 space-y-2">
+                    {['Home', 'Shop', 'Categories', 'About', 'Contact'].map((item) => (
+                        <a 
+                            key={item} 
+                            href="#" 
+                            className="block text-gray-700 hover:text-red-600 font-medium transition"
+                        >
+                            {item}
+                        </a>
+                    ))}
+                </div>
+            )}
         </nav>
     );
 };
