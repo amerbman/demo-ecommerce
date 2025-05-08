@@ -5,7 +5,7 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative h-auto lg:h-screen bg-fixed bg-cover bg-center px-4 lg:px-8 py-16 overflow-hidden"
+      className="relative h-auto lg:h-screen bg-fixed bg-cover bg-center  px-4 lg:px-8 py-16 overflow-hidden"
       style={{ backgroundImage: "url('/assets/flora_products.png')" }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
