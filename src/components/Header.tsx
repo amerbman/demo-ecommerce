@@ -1,11 +1,20 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import LogoFlora from './LogoFlora';
 import LogoFlosoft from './LogoFlosoft';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons';
+
+const navItems = [
+  { label: 'Home',       path: '/' },
+  { label: 'Shop',       path: '/shop' },
+  
+  { label: 'About',      path: '/about' },
+  { label: 'Contact',    path: '/contact' },
+];
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,7 +42,6 @@ const Header: React.FC = () => {
                 alt="SSBTE Logo"
                 width={48}
                 height={48}
-                className="inline-block w-12 h-12"
               />
             </a>
           </div>
@@ -43,14 +51,14 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-8">
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {['Home', 'Shop', 'Categories', 'About', 'Contact'].map(item => (
-              <a
-                key={item}
-                href="#"
+            {navItems.map(({ label, path }) => (
+              <Link
+                key={label}
+                href={path}
                 className="text-gray-700 hover:text-red-600 font-medium transition"
               >
-                {item}
-              </a>
+                {label}
+              </Link>
             ))}
           </div>
 
@@ -64,7 +72,10 @@ const Header: React.FC = () => {
           </button>
 
           {/* Mobile Menu Button */}
-          <button onClick={toggleMobileMenu} className="md:hidden text-gray-700 hover:text-red-600">
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden text-gray-700 hover:text-red-600"
+          >
             <FontAwesomeIcon icon={faBars} className="text-2xl" />
           </button>
         </div>
@@ -73,14 +84,14 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-md rounded-md mt-2 absolute right-4 top-20 z-50 p-4 space-y-2">
-          {['Home', 'Shop', 'Categories', 'About', 'Contact'].map(item => (
-            <a
-              key={item}
-              href="#"
+          {navItems.map(({ label, path }) => (
+            <Link
+              key={label}
+              href={path}
               className="block text-gray-700 hover:text-red-600 font-medium transition"
             >
-              {item}
-            </a>
+              {label}
+            </Link>
           ))}
         </div>
       )}

@@ -1,0 +1,1299 @@
+{
+  "flora": {
+    "info": "Flora specializes in high-quality cleaning products.",
+    "CLEANING SETS & MULTIPURPOSE BUCKETS": [
+      {
+        "id": "F400",
+        "name": "MAGIC TABLET MOP CLEANING SET ECO",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_1.jpg"
+        ],
+        "pdf": "magic_tablet_mop_cleaning_set_eco",
+        "part_number": "F400",
+        "quantity": 6,
+        "in_stock": false,
+        "description": "",
+        "show_pdf": false,
+        "show_product": false
+      },
+      {
+        "id": "F444",
+        "name": "TRIO TABLET MOP CLEANING SET 14 LT",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_2.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_2.1.jpg"
+        ],
+        "pdf": "trio_tablet_mop_cleaning_set",
+        "part_number": "F444",
+        "description": "",
+        "quantity": 4,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F411",
+        "name": "SPRAY MOP",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_3.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_3.1.jpg"
+        ],
+        "pdf": "spray_mop",
+        "part_number": "F411",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F187",
+        "name": "BALERINA SPIN MOP CLEANING SET 21 LT",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_4.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_4.1.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_4.2.jpg"
+        ],
+        "pdf": "eco_balerina_spin_mop",
+        "part_number": "F187",
+        "description": "",
+        "quantity": 4,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F369",
+        "name": "TRENDY WHEELED SPIN MOP CLEANING SET",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_5.jpg"
+        ],
+        "pdf": "trendy_wheeled_spin_mop",
+        "part_number": "F369",
+        "description": "",
+        "quantity": 4,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F139",
+        "name": "BALERINA SPIN MOP CLEANING SET 21 LT",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_6.jpg"
+        ],
+        "pdf": "balerina_spin_mop",
+        "part_number": "F139",
+        "description": "",
+        "quantity": 4,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F305",
+        "name": "SPIN MOP CLEANING SET ECO",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_7.jpg"
+        ],
+        "pdf": "spin_mop_cleaning_set_eco",
+        "part_number": "F305",
+        "description": "",
+        "quantity": 4,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F059",
+        "name": "CLEANING BUCKET WITH DIRTY WATER CONTAINER 15 LT",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_8.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F059",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F065",
+        "name": "CLEANING BUCKET 15 LT",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_9.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_9.1.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_9.2.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_9.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F065",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F060",
+        "name": "BULLDOZER CLEANING BUCKET",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_10.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_10.1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F060",
+        "description": "",
+        "quantity": 1,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F365",
+        "name": "TRENDY MULTIPURPOSE ROUND BUCKET",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_11.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_11.1.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_11.2.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_11.3.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_11.4.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_11.5.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F365",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F366",
+        "name": "TRENDY MULTIPURPOSE SQUARE BUCKET",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_12.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_12.1.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_12.2.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_12.3.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_12.4.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_12.5.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F366",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F379",
+        "name": "TRENDY WHEELED TOY BOX 60 LT",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_13.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_13.1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F379",
+        "description": "",
+        "quantity": 5,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F384",
+        "name": "TRENDY WHEELED TOY BOX 40 LT",
+        "image": [
+          "/product_images/flora/cleaning_sets/cleaning_set_14.jpg",
+          "/product_images/flora/cleaning_sets/cleaning_set_14.1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F384",
+        "description": "",
+        "quantity": 6,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      }
+    ],
+    "DUSTPANS AND BROOMS": [
+      {
+        "id": "F077",
+        "name": "MEGA DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_1.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_1.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F077",
+        "description": "",
+        "quantity": 12,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F019",
+        "name": "DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_2.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_2.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_2.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F019",
+        "description": "",
+        "quantity": 12,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F079",
+        "name": "DUSTPAN WITH BROOM SET MINI",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_3.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_3.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_3.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F079",
+        "description": "",
+        "quantity": 12,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F117",
+        "name": "DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_4.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_4.1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F117",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F116",
+        "name": "DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_5.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_5.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_5.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F116",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F056",
+        "name": "TULIP DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_6.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_6.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_6.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_6.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F056",
+        "description": "",
+        "quantity": 12,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F176",
+        "name": "NEW TULIP DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_7.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_7.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_7.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_7.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F176",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F319",
+        "name": "TRANSPARENT HAND-HELD DUSTPAN",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_8.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_8.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_8.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_8.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F319",
+        "description": "",
+        "quantity": 48,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F115",
+        "name": "HAND-HELD DUSTPAN",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_9.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_9.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_9.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F115",
+        "description": "",
+        "quantity": 48,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F349",
+        "name": "CLIP-ON HAND-HELD DUSTPAN",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_10.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_10.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_10.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_10.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F349",
+        "description": "",
+        "quantity": 48,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F341",
+        "name": "TULIP HAND-HELD DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_11.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_11.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_11.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_11.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F341",
+        "description": "",
+        "quantity": 96,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F342",
+        "name": "TULIP HAND-HELD DUSTPAN WITH BROOM SET ELASTIC EDG",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_12.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_12.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_12.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_12.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F342",
+        "description": "",
+        "quantity": 96,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F324",
+        "name": "NEW HAND-HELD DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_13.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_13.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_13.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_13.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F324",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F033",
+        "name": "HAND-HELD DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_14.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_14.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_14.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F033",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F095",
+        "name": "HAND-HELD DUSTPAN WITH BROOM SET",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_15.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_15.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_15.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_15.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F095",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F313",
+        "name": "TULIP HAND-HELD BROOM 60 CM NO:0",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_16.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_16.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_16.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_16.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F313",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F314",
+        "name": "TULIP HAND-HELD BROOM 60 CM NO:1",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_17.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_17.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_17.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_17.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F314",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F315",
+        "name": "TULIP HAND-HELD BROOM 60 CM NO:2",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_18.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_18.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_18.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_18.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F315",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F327",
+        "name": "TULIP HAND-HELD BROOM 60 CM NO:3",
+        "image": [
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_19.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_19.1.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_19.2.jpg",
+          "/product_images/flora/dustpans_brooms/dustpans_brooms_19.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F327",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      }
+    ],
+    "BRUSHES": [
+      {
+        "id": "F020",
+        "name": "CHAMPION SOFT FLOOR BRUSH 17 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_1.jpg",
+          "/product_images/flora/brushes/brushes_1.1.jpg",
+          "/product_images/flora/brushes/brushes_1.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F020",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F021",
+        "name": "CHAMPION CAR BRUSH 17 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_2.jpg",
+          "/product_images/flora/brushes/brushes_2.1.jpg",
+          "/product_images/flora/brushes/brushes_2.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F021",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F023",
+        "name": "CHAMPION HARD FLOOR BRUSH 17 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_3.jpg",
+          "/product_images/flora/brushes/brushes_3.1.jpg",
+          "/product_images/flora/brushes/brushes_3.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F023",
+        "description": "",
+        "quantity": 48,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F147",
+        "name": "CHAMPION MEGA CAR BRUSH 20 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_4.jpg",
+          "/product_images/flora/brushes/brushes_4.1.jpg",
+          "/product_images/flora/brushes/brushes_4.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F147",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F320",
+        "name": "BONUS MEGA CAR BRUSH 20 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_5.jpg",
+          "/product_images/flora/brushes/brushes_5.1.jpg",
+          "/product_images/flora/brushes/brushes_5.2.jpg",
+          "/product_images/flora/brushes/brushes_5.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F320",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F321",
+        "name": "BONUS CAR BRUSH 17 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_6.jpg",
+          "/product_images/flora/brushes/brushes_6.1.jpg",
+          "/product_images/flora/brushes/brushes_6.2.jpg",
+          "/product_images/flora/brushes/brushes_6.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F321",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F382",
+        "name": "TRENDY CAR BRUSH 17 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_7.jpg",
+          "/product_images/flora/brushes/brushes_7.1.jpg",
+          "/product_images/flora/brushes/brushes_7.2.jpg",
+          "/product_images/flora/brushes/brushes_7.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F382",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F383",
+        "name": "TRENDY CAR BRUSH 20 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_8.jpg",
+          "/product_images/flora/brushes/brushes_8.1.jpg",
+          "/product_images/flora/brushes/brushes_8.2.jpg",
+          "/product_images/flora/brushes/brushes_8.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F383",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F113",
+        "name": "TRENDY MEGA CAR BRUSH 20 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_9.jpg",
+          "/product_images/flora/brushes/brushes_9.1.jpg",
+          "/product_images/flora/brushes/brushes_9.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F113",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F166",
+        "name": "CAR BRUSH 17 CM ECO",
+        "image": [
+          "/product_images/flora/brushes/brushes_10.jpg",
+          "/product_images/flora/brushes/brushes_10.1.jpg",
+          "/product_images/flora/brushes/brushes_10.2.jpg",
+          "/product_images/flora/brushes/brushes_10.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F166",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F167",
+        "name": "CAR BRUSH 20 CM ECO",
+        "image": [
+          "/product_images/flora/brushes/brushes_11.jpg",
+          "/product_images/flora/brushes/brushes_11.1.jpg",
+          "/product_images/flora/brushes/brushes_11.2.jpg",
+          "/product_images/flora/brushes/brushes_11.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F167",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F178",
+        "name": "UPRIGHT HARD FLOOR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_12.jpg",
+          "/product_images/flora/brushes/brushes_12.1.jpg",
+          "/product_images/flora/brushes/brushes_12.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F178",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F179",
+        "name": "UPRIGHT SOFT FLOOR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_13.jpg",
+          "/product_images/flora/brushes/brushes_13.1.jpg",
+          "/product_images/flora/brushes/brushes_13.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F179",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F304",
+        "name": "BUTTERFLY UPRIGHT SOFT FLOOR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_14.jpg",
+          "/product_images/flora/brushes/brushes_14.1.jpg",
+          "/product_images/flora/brushes/brushes_14.2.jpg",
+          "/product_images/flora/brushes/brushes_14.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F304",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F162",
+        "name": "HARD FLOOR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_15.jpg",
+          "/product_images/flora/brushes/brushes_15.1.jpg",
+          "/product_images/flora/brushes/brushes_15.2.jpg",
+          "/product_images/flora/brushes/brushes_15.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F162",
+        "description": "",
+        "quantity": 48,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F163",
+        "name": "SOFT FLOOR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_16.jpg",
+          "/product_images/flora/brushes/brushes_16.1.jpg",
+          "/product_images/flora/brushes/brushes_16.2.jpg",
+          "/product_images/flora/brushes/brushes_16.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F163",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F322",
+        "name": "BONUS HARD FLOOR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_17.jpg",
+          "/product_images/flora/brushes/brushes_17.1.jpg",
+          "/product_images/flora/brushes/brushes_17.2.jpg",
+          "/product_images/flora/brushes/brushes_17.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F322",
+        "description": "",
+        "quantity": 48,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F323",
+        "name": "BONUS SOFT FLOOR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_18.jpg",
+          "/product_images/flora/brushes/brushes_18.1.jpg",
+          "/product_images/flora/brushes/brushes_18.2.jpg",
+          "/product_images/flora/brushes/brushes_18.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F323",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F170",
+        "name": "OUTDOOR BRUSH 40 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_19.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F170",
+        "description": "",
+        "quantity": 12,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F171",
+        "name": "OUTDOOR BRUSH 50 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_20.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F171",
+        "description": "",
+        "quantity": 12,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F172",
+        "name": "OUTDOOR BRUSH 60 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_21.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F172",
+        "description": "",
+        "quantity": 12,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F389",
+        "name": "SOAP DISPENSING DISH BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_22.jpg",
+          "/product_images/flora/brushes/brushes_22.1.jpg",
+          "/product_images/flora/brushes/brushes_22.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F389",
+        "description": "",
+        "quantity": 96,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F388",
+        "name": "TRENDY SINK AND TUB BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_23.jpg",
+          "/product_images/flora/brushes/brushes_23.1.jpg",
+          "/product_images/flora/brushes/brushes_23.2.jpg",
+          "/product_images/flora/brushes/brushes_23.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F388",
+        "description": "",
+        "quantity": 96,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F367",
+        "name": "TRENDY SINK AND DISH BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_24.jpg",
+          "/product_images/flora/brushes/brushes_24.1.jpg",
+          "/product_images/flora/brushes/brushes_24.2.jpg",
+          "/product_images/flora/brushes/brushes_24.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F367",
+        "description": "",
+        "quantity": 36,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F380",
+        "name": "CONCEPT SINK ORGANIZER",
+        "image": [
+          "/product_images/flora/brushes/brushes_25.jpg",
+          "/product_images/flora/brushes/brushes_25.1.jpg",
+          "/product_images/flora/brushes/brushes_25.2.jpg",
+          "/product_images/flora/brushes/brushes_25.3.jpg",
+          "/product_images/flora/brushes/brushes_25.4.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F380",
+        "description": "",
+        "quantity": 24,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F356",
+        "name": "SPONGE HOLDER & SQUEEZER",
+        "image": [
+          "/product_images/flora/brushes/brushes_26.jpg",
+          "/product_images/flora/brushes/brushes_26.1.jpg",
+          "/product_images/flora/brushes/brushes_26.2.jpg",
+          "/product_images/flora/brushes/brushes_26.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F356",
+        "description": "",
+        "quantity": 48,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F338",
+        "name": "LOVE SINK ORGANIZER",
+        "image": [
+          "/product_images/flora/brushes/brushes_27.jpg",
+          "/product_images/flora/brushes/brushes_27.1.jpg",
+          "/product_images/flora/brushes/brushes_27.2.jpg",
+          "/product_images/flora/brushes/brushes_27.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F338",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F185",
+        "name": "MULTIPURPOSE CLEANING BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_28.jpg",
+          "/product_images/flora/brushes/brushes_28.1.jpg",
+          "/product_images/flora/brushes/brushes_28.2.jpg",
+          "/product_images/flora/brushes/brushes_28.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F185",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F333",
+        "name": "MULTIPURPOSE CLEANING BRUSH ECO",
+        "image": [
+          "/product_images/flora/brushes/brushes_29.jpg",
+          "/product_images/flora/brushes/brushes_29.1.jpg",
+          "/product_images/flora/brushes/brushes_29.2.jpg",
+          "/product_images/flora/brushes/brushes_29.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F333",
+        "description": "",
+        "quantity": 96,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F334",
+        "name": "NAIL AND COLLAR BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_30.jpg",
+          "/product_images/flora/brushes/brushes_30.1.jpg",
+          "/product_images/flora/brushes/brushes_30.2.jpg",
+          "/product_images/flora/brushes/brushes_30.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F334",
+        "description": "",
+        "quantity": 192,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F357",
+        "name": "MULTIPURPOSE CLEANING BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_31.jpg",
+          "/product_images/flora/brushes/brushes_31.1.jpg",
+          "/product_images/flora/brushes/brushes_31.2.jpg",
+          "/product_images/flora/brushes/brushes_31.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F357",
+        "description": "",
+        "quantity": 96,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      },
+      {
+        "id": "F359",
+        "name": "CLOTHES BRUSH",
+        "image": [
+          "/product_images/flora/brushes/brushes_32.jpg",
+          "/product_images/flora/brushes/brushes_32.1.jpg",
+          "/product_images/flora/brushes/brushes_32.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F359",
+        "description": "",
+        "quantity": 48,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F175",
+        "name": "OUTDOOR BRUSH 30 CM",
+        "image": [
+          "/product_images/flora/brushes/brushes_33.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F175",
+        "description": "",
+        "quantity": 12,
+        "in_stock": false,
+        "show_pdf": true,
+        "show_product": false
+      }
+    ],
+    "CARPET SWEEPERS": [
+      {
+        "id": "F062",
+        "name": "FERRARI DOUBLE ROLL CARPET SWEEPER",
+        "image": [
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_1.jpg",
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_1.1.jpg",
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_1.2.jpg",
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_1.3.jpg",
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_1.4.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F062",
+        "description": "",
+        "quantity": 60,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F093",
+        "name": "LADYBIRD DOUBLE ROLL CARPET SWEEPER",
+        "image": [
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_2.jpg",
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_2.1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F093",
+        "description": "",
+        "quantity": 120,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F112",
+        "name": "LADYBIRD DOUBLE ROLL CARPET SWEEPER",
+        "image": [
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_3.jpg",
+          "/product_images/flora/carpet_sweeper/carpet_sweeper_3.1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F112",
+        "description": "",
+        "quantity": 60,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      }
+    ],
+    "WIPERS & SQUEEGEES": [
+      {
+        "id": "F368",
+        "name": "TRENDY FLOOR WIPER 55 CM",
+        "image": [
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_1.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_1.1.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_1.2.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_1.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F368",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F155",
+        "name": "FLOOR WIPER 55 CM",
+        "image": [
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_2.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_2.1.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_2.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F155",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F364",
+        "name": "TRENDY FLOOR WIPER 40 CM",
+        "image": [
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_3.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_3.1.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_3.2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F364",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F107",
+        "name": "FLOOR WIPER 40 CM",
+        "image": [
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_4.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_4.1.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_4.2.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_4.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F107",
+        "description": "",
+        "quantity": 48,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F102",
+        "name": "FLOOR WIPER 34 CM",
+        "image": [
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_5.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_5.1.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_5.2.jpg",
+          "/product_images/flora/wipers_squeegees/wipers_squeegees_5.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F102",
+        "description": "",
+        "quantity": 48,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      }
+    ],
+    "TOILET BRUSHES": [
+      {
+        "id": "F183",
+        "name": "SINGLE CLASSICAL TOILET BRUSH",
+        "image": [
+          "/product_images/flora/toilet_brushes/toilet_brushes_1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F183",
+        "description": "",
+        "quantity": 36,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F184",
+        "name": "SINGLE ROUND TOILET BRUSH",
+        "image": [
+          "/product_images/flora/toilet_brushes/toilet_brushes_2.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F184",
+        "description": "",
+        "quantity": 36,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F108",
+        "name": "FLOWER TOILET BRUSH",
+        "image": [
+          "/product_images/flora/toilet_brushes/toilet_brushes_3.jpg",
+          "/product_images/flora/toilet_brushes/toilet_brushes_3.1.jpg",
+          "/product_images/flora/toilet_brushes/toilet_brushes_3.2.jpg",
+          "/product_images/flora/toilet_brushes/toilet_brushes_3.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F108",
+        "description": "",
+        "quantity": 48,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      },
+      {
+        "id": "F344",
+        "name": "BONUS CORNER TOILET BRUSH",
+        "image": [
+          "/product_images/flora/toilet_brushes/toilet_brushes_4.jpg",
+          "/product_images/flora/toilet_brushes/toilet_brushes_4.1.jpg",
+          "/product_images/flora/toilet_brushes/toilet_brushes_4.2.jpg",
+          "/product_images/flora/toilet_brushes/toilet_brushes_4.3.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "F344",
+        "description": "",
+        "quantity": 24,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      }
+    ],
+    "METAL FLOOR & PANE WIPERS": [
+      {
+        "id": "FT512",
+        "name": "METAL FORTIFIED FLOOR WIPER 45 CM",
+        "image": [
+          "/product_images/flora/metal_wipers/metal_wipers_1.jpg"
+        ],
+        "pdf": "cleaning_bucket",
+        "part_number": "FT512",
+        "description": "",
+        "quantity": 28,
+        "in_stock": true,
+        "show_pdf": true,
+        "show_product": true
+      }
+    ]
+  }
+}
