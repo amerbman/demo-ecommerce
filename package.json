@@ -15,13 +15,20 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "framer-motion": "^12.10.5",
     "next": "15.3.2",
+    "nprogress": "^0.2.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.30.3",
+    "react-spinners": "^0.17.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nprogress": "^0.2.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",

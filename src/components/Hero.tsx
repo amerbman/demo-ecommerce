@@ -1,6 +1,16 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
+
+
+const navItems = [
+  
+  { label: 'Shop',       path: '/shop', isButton: true },
+  
+  
+  
+];
 
 const Hero: React.FC = () => {
   return (
@@ -19,9 +29,27 @@ const Hero: React.FC = () => {
             Discover our premium mops, brooms, and cleaning accessories designed to
             make your cleaning routine faster, easier, and more effective.
           </p>
-          <button className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition font-semibold">
-            Shop Now
-          </button>
+          {navItems.map(({ label, path, isButton }) => (
+                      isButton ? (
+                        <Link key={label} href={path}>
+                          <button
+                            className="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded font-medium transition"
+                          >
+                            {label}
+                          </button>
+                        </Link>
+                      ) : (
+                        <Link
+                          key={label}
+                          href={path}
+                          className="text-gray-700 hover:text-red-600 font-medium transition"
+                        >
+                          {label}
+                        </Link>
+                      )
+                    ))}
+
+
         </div>
 
         {/* Floating Card */}

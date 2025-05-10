@@ -14,7 +14,7 @@ interface Brand {
   name: string;
   Logo: React.FC<React.SVGProps<SVGSVGElement>>;
   description: string;
-  bgImage: string;
+  bannerImage: string;
 }
 
 export default function ShopPage() {
@@ -27,14 +27,16 @@ export default function ShopPage() {
       Logo: LogoFlora,
       description:
         "Flora offers eco-friendly, high-quality cleaning tools built to last.",
-      bgImage: "/assets/brand-backgrounds/flora-bg.jpg",
+      
+      bannerImage: "/assets/brandinfo1.jpg",  
     },
     {
       name: "Flosoft",
       Logo: LogoFlosoft,
       description:
         "Flosoft brings you innovative, soft-touch household accessories. (Coming soon!)",
-      bgImage: "/assets/brand-backgrounds/flosoft-bg.jpg",
+      
+      bannerImage: "/assets/flosoft_logo.jpg",  
     },
   ];
 
@@ -83,7 +85,7 @@ export default function ShopPage() {
   const selectedBrand = brands.find((b) => b.name === brand)!;
 
   return (
-    <main className="container mx-auto py-8 space-y-12">
+    <main className="px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto py-8 space-y-12">
       {/* Brand Selector */}
       <div className="space-y-4 text-center">
         <div className="flex justify-center space-x-8">
@@ -111,7 +113,8 @@ export default function ShopPage() {
           <BrandInfo
             brand={selectedBrand.name}
             description={selectedBrand.description}
-            bgImage={selectedBrand.bgImage}
+            
+            bannerImage={selectedBrand.bannerImage}
           />
         </div>
       </div>
@@ -144,7 +147,7 @@ export default function ShopPage() {
 
       {/* Product Grid */}
       {filtered.length > 0 ? (
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {filtered.map((p) => (
             <li key={p.id}>
               <Link href={`/product/${p.id}`} className="block">

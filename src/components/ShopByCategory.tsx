@@ -51,7 +51,7 @@ export default function ShopByCategory() {
               <img
                 src={cat.image}
                 alt={cat.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-contain"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{cat.title}</h3>
