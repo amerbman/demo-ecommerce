@@ -1,24 +1,22 @@
-'use client';
+// src/components/ClientLayout.tsx
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef, ReactNode } from 'react';
-import NProgress from 'nprogress';
-import '../styles/nprogress.css';
-import Header from './Header';
-import Footer from './Footer';
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, ReactNode } from "react";
+import NProgress from "nprogress";
+import "../styles/nprogress.css";
+import { SessionProvider } from "next-auth/react";
+import Header from "./Header";
+import Footer from "./Footer";
 
-// ── Configure NProgress ─────────────────────────────────────────────────────
-NProgress.configure({
-  showSpinner: false,
-  speed: 1200,
-  trickleSpeed: 400,
-  minimum: 0.1,
-});
-// ─────────────────────────────────────────────────────────────────────────────
+NProgress.configure({ showSpinner: false, speed: 1200, trickleSpeed: 400, minimum: 0.1 });
 
 export default function ClientLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const first = useRef(true);
+
+  // Only show header/footer if not on an auth route
+  const isAuthRoute = pathname.startsWith("/auth");
 
   useEffect(() => {
     if (first.current) {
@@ -30,10 +28,10 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   return (
-    <>
-      <Header />
+    <SessionProvider>
+      {!isAuthRoute && <Header />}
       {children}
-      <Footer />
-    </>
+      {!isAuthRoute && <Footer />}
+    </SessionProvider>
   );
 }

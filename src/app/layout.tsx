@@ -20,10 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900">
-        {/* Wrap your pages in the client-side layout */}
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+                                     {/* ← wrap here */}
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        
       </body>
     </html>
   );
