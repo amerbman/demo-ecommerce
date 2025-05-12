@@ -9,6 +9,9 @@ import ProductCard from "@/components/ProductCard";
 import LogoFlora from "@/components/LogoFlora";
 import LogoFlosoft from "@/components/LogoFlosoft";
 import BrandInfo from "@/components/BrandInfo";
+import { useTranslations } from "next-intl";
+import { formatCategory } from "@/utils/formatCategory";
+import { useParams } from "next/navigation";
 
 interface Brand {
   name: string;
@@ -18,25 +21,24 @@ interface Brand {
 }
 
 export default function ShopPage() {
+  const t = useTranslations("Shop");
   const searchParams = useSearchParams();
+  const params = useParams();
+  const locale = params.locale || "en";
   const initialCategory = searchParams.get("category") ?? "All";
 
   const brands: Brand[] = [
     {
       name: "Flora",
       Logo: LogoFlora,
-      description:
-        "Flora offers eco-friendly, high-quality cleaning tools built to last.",
-      
-      bannerImage: "/assets/brandinfo1.jpg",  
+      description: t("floraDescription"),
+      bannerImage: "/assets/brandinfo1.jpg",
     },
     {
       name: "Flosoft",
       Logo: LogoFlosoft,
-      description:
-        "Flosoft brings you innovative, soft-touch household accessories. (Coming soon!)",
-      
-      bannerImage: "/assets/flosoft_logo.jpg",  
+      description: t("flosoftDescription"),
+      bannerImage: "/assets/flosoft_logo.jpg",
     },
   ];
 
@@ -48,6 +50,7 @@ export default function ShopPage() {
     setCategory(searchParams.get("category") ?? "All");
   }, [searchParams]);
 
+  // Flatten and categorize all products from JSON data
   const allProducts = useMemo(
     () =>
       Object.keys(productsData.flora)
@@ -62,11 +65,13 @@ export default function ShopPage() {
     []
   );
 
+  // Extract unique categories based on brand
   const categories = useMemo(() => {
     const prods = allProducts.filter((p) => p.brand === brand);
     return ["All", ...Array.from(new Set(prods.map((p) => p.category)))];
   }, [allProducts, brand]);
 
+  // Filter products based on selected brand, category, and search query
   const filtered = useMemo(
     () =>
       allProducts.filter((p) => {
@@ -82,6 +87,7 @@ export default function ShopPage() {
     [allProducts, brand, category, searchQuery]
   );
 
+  // Get the selected brand object
   const selectedBrand = brands.find((b) => b.name === brand)!;
 
   return (
@@ -98,22 +104,17 @@ export default function ShopPage() {
                 setSearchQuery("");
               }}
               className={`p-2 rounded transition ${
-                brand === name
-                  ? "bg-gray-600 text-white"
-                  : "bg-gray-100 hover:bg-gray-200"
+                brand === name ? "bg-gray-600 text-white" : "bg-gray-100 hover:bg-gray-200"
               }`}
             >
               <Logo className="h-12 w-auto" />
             </button>
           ))}
         </div>
-
-        {/* Static Brand Info */}
         <div className="w-full mx-auto">
           <BrandInfo
             brand={selectedBrand.name}
             description={selectedBrand.description}
-            
             bannerImage={selectedBrand.bannerImage}
           />
         </div>
@@ -127,18 +128,16 @@ export default function ShopPage() {
               key={c}
               onClick={() => setCategory(c)}
               className={`px-4 py-2 rounded transition ${
-                category === c
-                  ? "bg-red-600 text-white"
-                  : "bg-gray-100 hover:bg-gray-200"
+                category === c ? "bg-red-600 text-white" : "bg-gray-100 hover:bg-gray-200"
               }`}
             >
-              {c}
+              {t(`categories.${formatCategory(c)}`)}
             </button>
           ))}
         </div>
         <input
           type="text"
-          placeholder="Search products..."
+          placeholder={t("searchPlaceholder")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="border rounded p-2 flex-1 sm:flex-none w-full sm:w-1/3 focus:outline-none focus:ring-2 focus:ring-primary"
@@ -150,20 +149,19 @@ export default function ShopPage() {
         <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {filtered.map((p) => (
             <li key={p.id}>
-              <Link href={`/product/${p.id}`} className="block">
+              <Link href={`/${locale}/product/${p.id}`} className="block">
                 <ProductCard
                   name={p.name}
                   price={p.price ?? 0}
                   image={p.image[0]}
+                  id={p.id}
                 />
               </Link>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-center text-gray-500">
-          No products found matching those filters.
-        </p>
+        <p className="text-center text-gray-500">{t("noProductsFound")}</p>
       )}
     </main>
   );

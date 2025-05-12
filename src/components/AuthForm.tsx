@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface AuthFormProps {
   mode: "login" | "register";
@@ -7,6 +8,7 @@ interface AuthFormProps {
 }
 
 export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
+  const t = useTranslations("authForm");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +24,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
       {mode === "register" && (
         <input
           type="text"
-          placeholder="Your Name"
+          placeholder={t("namePlaceholder")}
           value={name}
           onChange={e => setName(e.target.value)}
           className="border p-3 rounded"
@@ -32,7 +34,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
 
       <input
         type="email"
-        placeholder="Email"
+        placeholder={t("emailPlaceholder")}
         value={email}
         onChange={e => setEmail(e.target.value)}
         className="border p-3 rounded"
@@ -41,7 +43,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
 
       <input
         type="password"
-        placeholder="Password"
+        placeholder={t("passwordPlaceholder")}
         value={password}
         onChange={e => setPassword(e.target.value)}
         className="border p-3 rounded"
@@ -52,7 +54,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
         type="submit"
         className="bg-blue-600 text-white py-3 rounded hover:bg-blue-700"
       >
-        {mode === "login" ? "Log In" : "Create Account"}
+        {mode === "login" ? t("loginButton") : t("registerButton")}
       </button>
     </form>
   );

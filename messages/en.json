@@ -1,0 +1,237 @@
+{
+  "header": {
+    "soldBy": "Sold and Distributed by SSBTE",
+    "myAccount": "My Account",
+    "logout": "Logout",
+    "login": "Login",
+    "cart": "Cart"
+  },
+  "navbar": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact",
+    "support": "Support"
+  },
+  "auth": {
+    "loginTitle": "Log In",
+    "invalidCredentials": "Invalid email or password.",
+    "loggingIn": "Logging you in…",
+    "noAccount": "Don’t have an account?",
+    "register": "Register"
+  },
+  "hero": {
+    "title1": "Professional Cleaning",
+    "title2": "Tools for Spotless Homes",
+    "description": "Discover our premium mops, brooms, and cleaning accessories designed to make your cleaning routine faster, easier, and more effective.",
+    "cta": "Shop Now",
+    "productTitle": "Microfiber Technology",
+    "productDescription": "Super absorbent fibers for spotless cleaning.",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "footer": {
+    "soldBy": "Sold and Distributed by SSBTE",
+    "ssbteLogoAlt": "SSBTE Logo",
+    "shop": "Shop",
+    "brooms": "Brooms",
+    "brushes": "Brushes",
+    "mops": "Mops",
+    "kits": "Cleaning Kits",
+    "accessories": "Accessories",
+    "support": "Support",
+    "contactUs": "Contact Us",
+    "faqs": "FAQs",
+    "shipping": "Shipping & Returns",
+    "care": "Product Care",
+    "warranty": "Warranty",
+    "contact": "Contact",
+    "address": "123 Clean Street, San Francisco",
+    "phone": "(800) 123-4567",
+    "email": "hello@cleantoolspro.com",
+    "copyright": "© 2025 SALEH SAEED BAOTHMAN TRDE. All rights reserved.",
+    "developedByPrefix": "Developed by",
+    "developerName": "Amer Baosman"
+  },
+  "shopByCategory": {
+    "heading": "Shop By Category",
+    "subheading": "Find the perfect cleaning tool for every task in your home",
+    "categories": {
+      "DUSTPANS AND BROOMS": {
+        "title": "Brooms",
+        "description": "Traditional and modern brooms for all floor types",
+        "cta": "Shop Brooms →"
+      },
+      "BRUSHES": {
+        "title": "Brushes",
+        "description": "Specialized brushes for every cleaning challenge",
+        "cta": "Shop Brushes →"
+      },
+      "CLEANING SETS & MULTIPURPOSE BUCKETS": {
+        "title": "Mops",
+        "description": "Advanced mop systems for sparkling clean floors",
+        "cta": "Shop Mops →"
+      }
+    }
+  },
+  "featuredProducts": {
+    "heading": "Featured Products",
+    "addToCart": "Add to Cart",
+    "products": {
+      "F400": {
+        "name": "Mop Pro",
+        "description": "High quality mop for spotless cleaning"
+      },
+      "F077": {
+        "name": "Broom Pro",
+        "description": "Durable broom for everyday use"
+      },
+      "F021": {
+        "name": "Brush Pro",
+        "description": "Soft bristles for gentle cleaning"
+      },
+      "F368": {
+        "name": "Scrubber",
+        "description": "Heavy-duty scrubber for tough stains"
+      }
+    }
+  },
+  "whyChoose": {
+    "heading": "Why Choose Us?",
+    "subheading": "We’re committed to providing the highest quality cleaning tools",
+    "benefits": {
+      "premiumQuality": {
+        "title": "Premium Quality",
+        "description": "Our products are made with durable materials designed to last longer than standard cleaning tools."
+      },
+      "ecoFriendly": {
+        "title": "Eco-Friendly",
+        "description": "We prioritize sustainable materials and manufacturing processes to reduce environmental impact."
+      },
+      "expertSupport": {
+        "title": "Expert Support",
+        "description": "Our cleaning experts are available to help you choose the right tools for your specific needs."
+      }
+    }
+  },
+  "joinCommunity": {
+    "heading": "Join Our Cleaning Community",
+    "description": "Subscribe to our newsletter for cleaning tips, exclusive offers, and new product announcements.",
+    "placeholder": "Your email address",
+    "button": "Subscribe Now",
+    "alert": "Thanks for subscribing!"
+  },
+  "authForm": {
+  "namePlaceholder": "Your Name",
+  "emailPlaceholder": "Email",
+  "passwordPlaceholder": "Password",
+  "loginButton": "Log In",
+  "registerButton": "Create Account"
+},
+"brandInfo": {
+  "brands": {
+    "Flora": {
+      "description": "Flora offers eco-friendly, high-quality cleaning tools built to last."
+    },
+    "Flosoft": {
+      "description": "Flosoft brings you innovative, soft-touch household accessories. (Coming soon!)"
+    }
+  }
+},
+"order": {
+  "1234": {
+    "status": {
+      "shipped": "Shipped"
+    }
+  },
+  "5678": {
+    "status": {
+      "processing": "Processing"
+    }
+  }
+},
+"productCard": {
+  "addToCart": "Add to Cart"
+},
+"trackingWidget": {
+  "prompt": "Enter your order number to track its status"
+},
+"aboutPage": {
+  "title": "About Flora",
+  "ourStory": {
+    "title": "Our Story",
+    "content": "Flora specializes in high-quality cleaning products designed to make your home sparkle. Founded in 2020, our mission has always been to blend innovation with eco-friendly materials."
+  },
+  "ourMission": {
+    "title": "Our Mission",
+    "content": "We believe a clean home is a happy home, and that caring for the planet means using products that last longer and waste less."
+  },
+  "meetTeam": "Meet the Team",
+  "team": {
+    "jane": {
+      "name": "Jane Doe",
+      "title": "Co-founder & CEO"
+    },
+    "john": {
+      "name": "John Smith",
+      "title": "Head of Product"
+    }
+  }
+},
+"accountPage": {
+  "loadingAccount": "Loading your account...",
+  "welcome": "Welcome",
+  "myOrders": "My Orders",
+  "trackOrder": "Track an Order"
+},
+"Contact": {
+  "title": "Contact Us",
+  "nameLabel": "Name",
+  "emailLabel": "Email",
+  "messageLabel": "Message",
+  "submitButton": "Send Message",
+  "successMessage": "Thanks for your message—someone will be in touch soon!"
+},
+"Tracking": {
+  "loading": "Loading tracking information...",
+  "trackOrder": "Track Your Order"
+},
+"Product": {
+  "noDescription": "No description available.",
+  "inStock": "In Stock",
+  "outOfStock": "Out of Stock",
+  "addToCart": "Add to Cart",
+  "backToShop": "Back to Shop",
+  "share": "Share this product:",
+  "relatedProducts": "Related Products"
+},
+"Shop": {
+  "floraDescription": "Flora offers eco-friendly, high-quality cleaning tools built to last.",
+  "flosoftDescription": "Flosoft brings you innovative, soft-touch household accessories. (Coming soon!)",
+  "searchPlaceholder": "Search products...",
+  "noProductsFound": "No products found matching those filters.",
+  "categories": {
+    "all": "All",
+    "cleaning_sets_multipurpose_buckets": "Cleaning Sets & Multipurpose Buckets",
+    "dustpans_and_brooms": "Dustpans and Brooms",
+    "brushes": "Brushes",
+    "carpet_sweepers": "Carpet Sweepers",
+    "wipers_squeegees": "Wipers & Squeegees",
+    "toilet_brushes": "Toilet Brushes",
+    "metal_floor_pane_wipers": "Metal Floor & Pane Wipers"
+  }
+},
+"Support": {
+  "support": "Support",
+  "frequentlyAskedQuestions": "Frequently Asked Questions",
+  "howToTrackOrder": "How can I track my order?",
+  "trackOrderInstructions": "Log in and visit 'My Orders', then click 'Track Order' and enter your order number.",
+  "returnPolicy": "What is your return policy?",
+  "returnPolicyDetails": "You can return any unopened product within 30 days for a full refund.",
+  "needHelp": "Still need help?",
+  "contactSupport": "Reach out to our support team via",
+  "contactPage": "Contact Page"
+}
+
+
+}

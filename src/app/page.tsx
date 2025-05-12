@@ -1,20 +1,8 @@
-"use client";
-
-import Hero from "@/components/Hero";
-import ShopByCategory from "@/components/ShopByCategory";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import WhyChoose from "@/components/WhyChoose";
-import JoinCommunity from "@/components/JoinCommunity";
+import { useTranslations } from 'next-intl';
+// src/app/page.tsx
+import { redirect } from 'next/navigation';
 
 export default function HomePage() {
- 
-  return (
-    <main>
-      <Hero />
-      <ShopByCategory />
-      <FeaturedProducts />
-      <WhyChoose />
-      <JoinCommunity />
-    </main>
-  );
+  // Only runs at the root path (`/`)
+  redirect('/en');
 }

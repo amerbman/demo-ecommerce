@@ -1,9 +1,8 @@
 // src/app/layout.tsx
 import '../styles/globals.css';
-import '../styles/nprogress.css'; // loader styles
+import '../styles/nprogress.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import ClientLayout from '../components/ClientLayout';
 
 config.autoAddCss = false;
 
@@ -20,11 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900">
-                                     {/* ← wrap here */}
-          <ClientLayout>
-            {children}
-          </ClientLayout>
-        
+        {children}
       </body>
     </html>
   );

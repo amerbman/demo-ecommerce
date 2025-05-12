@@ -4,24 +4,27 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useSession, signOut, signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import LogoFlora from "./LogoFlora";
 import LogoFlosoft from "./LogoFlosoft";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import AuthForm from "@/components/AuthForm";
+import { useTranslations } from "next-intl";
 
 const navItems = [
-  { label: "Home",    path: "/" },
-  { label: "Shop",    path: "/shop" },
-  { label: "About",   path: "/about" },
-  { label: "Contact", path: "/contact" },
-  { label: "Support", path: "/support" },
+  { key: "home",    path: "" },
+  { key: "shop",    path: "shop" },
+  { key: "about",   path: "about" },
+  { key: "contact", path: "contact" },
+  { key: "support", path: "support" },
 ];
 
 export default function Header() {
+  const t = useTranslations();
   const { data: session, status } = useSession();
+  const { locale } = useParams();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
@@ -54,7 +57,7 @@ export default function Header() {
     const res = await signIn("credentials", { redirect: false, ...data });
     setLoadingLogin(false);
     if (res?.error) {
-      setLoginError("Invalid email or password.");
+      setLoginError(t("auth.invalidCredentials"));
     } else {
       closeLogin();
       router.refresh();
@@ -72,7 +75,7 @@ export default function Header() {
               <LogoFlosoft />
             </div>
             <div className="flex items-center justify-center space-x-1 text-gray-600 text-xs">
-              <span>Sold and Distributed by SSBTE</span>
+              <span>{t("header.soldBy")}</span>
               <a
                 href="https://ssbte.net"
                 target="_blank"
@@ -85,14 +88,14 @@ export default function Header() {
           </div>
 
           {/* Desktop nav + profile + cart */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navItems.map(({ label, path }) => (
+          <div className="hidden md:flex items-center gap-x-6">
+            {navItems.map(({ key, path }) => (
               <Link
-                key={label}
-                href={path}
+                key={key}
+                href={`/${locale}/${path}`}
                 className="text-gray-700 hover:text-red-600 font-medium transition"
               >
-                {label}
+                {t(`navbar.${key}`)}
               </Link>
             ))}
 
@@ -104,7 +107,9 @@ export default function Header() {
               >
                 <FontAwesomeIcon icon={faUser} className="text-2xl" />
                 {status === "authenticated" && (
-                  <span className="ml-2 text-gray-700">Hello, {session.user?.name}</span>
+                  <span className="ml-2 text-gray-700">
+                    {t("header.hello")}, {session.user?.name}
+                  </span>
                 )}
               </button>
               {profileMenuOpen && (
@@ -114,7 +119,7 @@ export default function Header() {
                       href="/account"
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
-                      My Account
+                      {t("header.myAccount")}
                     </Link>
                   )}
                   {status === "authenticated" && (
@@ -122,7 +127,7 @@ export default function Header() {
                       onClick={() => signOut({ callbackUrl: "/" })}
                       className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
-                      Logout
+                      {t("header.logout")}
                     </button>
                   )}
                   {status === "unauthenticated" && (
@@ -130,7 +135,7 @@ export default function Header() {
                       onClick={openLogin}
                       className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
-                      Login
+                      {t("header.login")}
                     </button>
                   )}
                 </div>
@@ -140,7 +145,7 @@ export default function Header() {
             {/* Cart at end */}
             <button className="relative inline-flex items-center text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium">
               <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-              Cart
+              {t("header.cart")}
               <span className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                 3
               </span>
@@ -159,30 +164,32 @@ export default function Header() {
         {/* Mobile menu panel */}
         {mobileOpen && (
           <div className="md:hidden p-4 space-y-2 bg-white shadow-lg">
-            {navItems.map(({ label, path }) => (
+            {navItems.map(({ key, path }) => (
               <Link
-                key={label}
-                href={path}
+                key={key}
+                href={`/${locale}/${path}`}
                 className="block text-gray-700 hover:text-red-600 font-medium transition"
               >
-                {label}
+                {t(`navbar.${key}`)}
               </Link>
             ))}
             <div className="border-t mt-2 pt-2" />
             {status === "loading" ? null : session ? (
               <>
-                <span className="block text-gray-700">Hello, {session.user?.name}</span>
+                <span className="block text-gray-700">
+                  {t("header.hello")}, {session.user?.name}
+                </span>
                 <Link
-                  href="/account"
+                  href={`/${locale}/account`}
                   className="block text-gray-700 hover:text-red-600 font-medium"
                 >
-                  My Account
+                  {t("header.myAccount")}
                 </Link>
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
                   className="block text-gray-700 hover:text-red-600 font-medium"
                 >
-                  Logout
+                  {t("header.logout")}
                 </button>
               </>
             ) : (
@@ -190,7 +197,7 @@ export default function Header() {
                 onClick={openLogin}
                 className="block text-gray-700 hover:text-red-600 font-medium"
               >
-                Login
+                {t("header.login")}
               </button>
             )}
           </div>
@@ -207,12 +214,19 @@ export default function Header() {
             >
               ×
             </button>
-            <h2 className="text-xl font-bold mb-4 text-center">Log In</h2>
-            {loginError && <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">{loginError}</div>}
+            <h2 className="text-xl font-bold mb-4 text-center">{t("auth.loginTitle")}</h2>
+            {loginError && (
+              <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">{loginError}</div>
+            )}
             <AuthForm mode="login" onSubmit={handleLogin} />
-            {loadingLogin && <p className="mt-2 text-gray-600 text-center">Logging you in…</p>}
+            {loadingLogin && (
+              <p className="mt-2 text-gray-600 text-center">{t("auth.loggingIn")}</p>
+            )}
             <p className="mt-4 text-sm text-gray-600 text-center">
-              Don’t have an account? <Link href="/auth/register" className="text-red-600 hover:underline">Register</Link>
+              {t("auth.noAccount")}{" "}
+              <Link href="/auth/register" className="text-red-600 hover:underline">
+                {t("auth.register")}
+              </Link>
             </p>
           </div>
         </div>

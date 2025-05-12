@@ -1,30 +1,32 @@
+// src/app/[locale]/product/[id]/page.tsx
+"use client";
+
 import { notFound } from 'next/navigation';
 import productsData from '../../data/products.json';
-import { ProductsData } from '@/Product'; // Import the correct type
+import { ProductsData } from '@/Product';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
+import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 type Params = { params: { id: string } };
 
 // Type assertion for imported JSON data
 const data: ProductsData = productsData;
 
-// Generate static params for Next.js
-export function generateStaticParams(): Params['params'][] {
-  const allProducts = Object.values(data.flora)
-    .filter(Array.isArray)
-    .flat();
-  return allProducts.map((p) => ({ id: p.id }));
-}
+export default function ProductPage() {
+  const t = useTranslations("Product");
+  const params = useParams();
+  const locale = params.locale || 'en';
+  const productId = params.id;
 
-export default function ProductPage({ params }: Params) {
   // Flatten all products from all categories
   const allProducts = Object.values(data.flora)
     .filter(Array.isArray)
     .flat();
 
   // Find the product by ID
-  const product = allProducts.find((p) => p.id === params.id);
+  const product = allProducts.find((p) => p.id === productId);
   if (!product) return notFound();
 
   // Find the product category safely
@@ -50,25 +52,25 @@ export default function ProductPage({ params }: Params) {
         <div className="flex flex-col space-y-4">
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <p className="text-gray-600">
-            {product.description || 'No description available.'}
+            {product.description || t('noDescription')}
           </p>
           <p className="text-2xl font-semibold text-red-600">
             ${product.price.toFixed(2)}
           </p>
           <p className={`font-medium ${product.in_stock ? 'text-green-600' : 'text-red-600'}`}>
-            {product.in_stock ? 'In Stock' : 'Out of Stock'}
+            {product.in_stock ? t('inStock') : t('outOfStock')}
           </p>
 
           <button className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded">
-            Add to Cart
+            {t('addToCart')}
           </button>
-          <Link href="/shop" className="text-red-600 hover:underline mt-2">
-            ← Back to Shop
+          <Link href={`/${locale}/shop`} className="text-red-600 hover:underline mt-2">
+            ← {t('backToShop')}
           </Link>
 
           {/* Social Media Sharing */}
           <div className="mt-6 space-x-4">
-            <p className="text-gray-500">Share this product:</p>
+            <p className="text-gray-500">{t('share')}</p>
             <div className="flex space-x-2">
               <button className="bg-blue-600 text-white px-2 py-1 rounded">Facebook</button>
               <button className="bg-blue-400 text-white px-2 py-1 rounded">Twitter</button>
@@ -81,10 +83,10 @@ export default function ProductPage({ params }: Params) {
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <section className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">Related Products</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('relatedProducts')}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {relatedProducts.map((rel) => (
-              <Link key={rel.id} href={`/product/${rel.id}`} className="block bg-white p-4 rounded shadow hover:shadow-lg">
+              <Link key={rel.id} href={`/${locale}/product/${rel.id}`} className="block bg-white p-4 rounded shadow hover:shadow-lg">
                 <img
                   src={rel.image[0]}
                   alt={rel.name}

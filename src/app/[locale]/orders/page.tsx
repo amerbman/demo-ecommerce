@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 "use client";
 
 import { useSession } from "next-auth/react";
@@ -16,12 +17,12 @@ export default function OrdersPage() {
     }
   }, [status, router]);
 
-  if (status === "loading") return <p>Loading orders…</p>;
+  if (status === "loading") return <p>{t('loading.orders')}</p>;
   if (!session) return null;
 
   return (
     <main className="p-8">
-      <h1 className="text-2xl font-bold mb-4">My Orders</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('my.orders')}</h1>
       <OrdersList />
     </main>
   );

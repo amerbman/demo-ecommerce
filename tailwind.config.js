@@ -28,4 +28,11 @@ module.exports = {
     },
   },
   plugins: [],
-}
+  variants: {
+    extend: {
+      textAlign: ['rtl', 'ltr'],
+      margin: ['rtl', 'ltr'],
+      padding: ['rtl', 'ltr'],
+    },
+  },
+};

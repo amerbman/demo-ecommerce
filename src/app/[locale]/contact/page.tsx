@@ -1,7 +1,9 @@
 "use client"
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 
 export default function ContactPage() {
+  const t = useTranslations("Contact")
   const [form, setForm] = useState({ name: "", email: "", message: "" })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -9,17 +11,16 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: wire up your API endpoint
-    alert("Thanks for your message—someone will be in touch soon!")
+    alert(t("successMessage"))
     setForm({ name: "", email: "", message: "" })
   }
 
   return (
     <main className="container mx-auto py-16">
-      <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
+      <h1 className="text-4xl font-bold mb-8">{t("title")}</h1>
       <form onSubmit={handleSubmit} className="max-w-lg space-y-6">
         <div>
-          <label htmlFor="name" className="block font-medium">Name</label>
+          <label htmlFor="name" className="block font-medium">{t("nameLabel")}</label>
           <input
             id="name"
             name="name"
@@ -32,7 +33,7 @@ export default function ContactPage() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block font-medium">Email</label>
+          <label htmlFor="email" className="block font-medium">{t("emailLabel")}</label>
           <input
             id="email"
             name="email"
@@ -45,7 +46,7 @@ export default function ContactPage() {
         </div>
 
         <div>
-          <label htmlFor="message" className="block font-medium">Message</label>
+          <label htmlFor="message" className="block font-medium">{t("messageLabel")}</label>
           <textarea
             id="message"
             name="message"
@@ -61,9 +62,9 @@ export default function ContactPage() {
           type="submit"
           className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded"
         >
-          Send Message
+          {t("submitButton")}
         </button>
       </form>
     </main>
-)
+  )
 }
