@@ -15,7 +15,9 @@
         "description": "",
         "show_pdf": false,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "مكنسه برو",
+        "description_ar": "مكنسه برو مرا"
       },
       {
         "id": "F444",
@@ -31,7 +33,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F411",
@@ -47,7 +51,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F187",
@@ -64,7 +70,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F369",
@@ -79,7 +87,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F139",
@@ -94,7 +104,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F305",
@@ -109,7 +121,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F059",
@@ -124,7 +138,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F065",
@@ -142,7 +158,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F060",
@@ -158,7 +176,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F365",
@@ -178,7 +198,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F366",
@@ -198,7 +220,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F379",
@@ -214,7 +238,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F384",
@@ -230,7 +256,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       }
     ],
     "DUSTPANS AND BROOMS": [
@@ -249,7 +277,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F019",
@@ -267,7 +297,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F079",
@@ -284,7 +316,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F117",
@@ -300,7 +334,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F116",
@@ -317,7 +353,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F056",
@@ -335,7 +373,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F176",
@@ -353,7 +393,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F319",
@@ -371,7 +413,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F115",
@@ -388,7 +432,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F349",
@@ -406,7 +452,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F341",
@@ -424,7 +472,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F342",
@@ -442,7 +492,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F324",
@@ -460,7 +512,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F033",
@@ -477,7 +531,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F095",
@@ -495,7 +551,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F313",
@@ -513,7 +571,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F314",
@@ -531,7 +591,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F315",
@@ -549,7 +611,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F327",
@@ -567,7 +631,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       }
     ],
     "BRUSHES": [
@@ -586,7 +652,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F021",
@@ -603,7 +671,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F023",
@@ -620,7 +690,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F147",
@@ -637,7 +709,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F320",
@@ -655,7 +729,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F321",
@@ -673,7 +749,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F382",
@@ -691,7 +769,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F383",
@@ -709,7 +789,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F113",
@@ -726,7 +808,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F166",
@@ -744,7 +828,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F167",
@@ -762,7 +848,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F178",
@@ -779,7 +867,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F179",
@@ -796,7 +886,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F304",
@@ -814,7 +906,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F162",
@@ -832,7 +926,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F163",
@@ -850,7 +946,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F322",
@@ -868,7 +966,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F323",
@@ -886,7 +986,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F170",
@@ -901,7 +1003,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F171",
@@ -916,7 +1020,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F172",
@@ -931,7 +1037,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F389",
@@ -948,7 +1056,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F388",
@@ -966,7 +1076,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F367",
@@ -984,7 +1096,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F380",
@@ -1003,7 +1117,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F356",
@@ -1021,7 +1137,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F338",
@@ -1039,7 +1157,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F185",
@@ -1057,7 +1177,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F333",
@@ -1075,7 +1197,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F334",
@@ -1093,7 +1217,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F357",
@@ -1111,7 +1237,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F359",
@@ -1128,7 +1256,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F175",
@@ -1143,7 +1273,9 @@
         "in_stock": false,
         "show_pdf": true,
         "show_product": false,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       }
     ],
     "CARPET SWEEPERS": [
@@ -1164,7 +1296,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F093",
@@ -1180,7 +1314,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F112",
@@ -1196,7 +1332,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       }
     ],
     "WIPERS & SQUEEGEES": [
@@ -1216,7 +1354,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F155",
@@ -1233,7 +1373,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F364",
@@ -1250,7 +1392,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F107",
@@ -1268,7 +1412,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F102",
@@ -1286,7 +1432,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       }
     ],
     "TOILET BRUSHES": [
@@ -1303,7 +1451,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F184",
@@ -1318,7 +1468,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F108",
@@ -1336,7 +1488,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       },
       {
         "id": "F344",
@@ -1354,7 +1508,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       }
     ],
     "METAL FLOOR & PANE WIPERS": [
@@ -1371,7 +1527,9 @@
         "in_stock": true,
         "show_pdf": true,
         "show_product": true,
-        "price": 19.99
+        "price": 19.99,
+        "name_ar": "",
+        "description_ar": ""
       }
     ]
   }

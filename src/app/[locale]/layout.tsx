@@ -1,45 +1,31 @@
-import "../../styles/globals.css";
-import "../../styles/nprogress.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import ClientLayout from "@/components/ClientLayout";
+// src/app/[locale]/layout.tsx
+import { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
+import ClientLayout from "@/components/ClientLayout";
 
-config.autoAddCss = false;
-
-// Pre-render exactly these two locales
+// Tell Next.js which locales to pre-render
 export async function generateStaticParams() {
   return [{ locale: "en" }, { locale: "ar" }];
 }
-
-// Disable any other on-the-fly locale params
 export const dynamicParams = false;
 
-export const metadata = {
-  title: "Flora E-commerce",
-  description: "Cleaning products for every need",
-};
-
-export default async function LocaleRootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
+interface Props {
+  children: ReactNode;
   params: { locale: string };
-}) {
-  // Extract locale from parameters
-  const { locale } = params;
+}
 
-  // Dynamically import the correct nested JSON messages
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = params;
+  // load the correct messages file
   const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const isRtl = locale === "ar";
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className={`bg-gray-50 text-gray-900 ${locale === "ar" ? "rtl" : "ltr"}`}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ClientLayout>{children}</ClientLayout>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    // This is no longer <html>/<body> — just a wrapper
+    <div dir={isRtl ? "rtl" : "ltr"} className={isRtl ? "rtl" : ""}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <ClientLayout>{children}</ClientLayout>
+      </NextIntlClientProvider>
+    </div>
   );
 }

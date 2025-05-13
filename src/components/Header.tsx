@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import AuthForm from "@/components/AuthForm";
 import { useTranslations } from "next-intl";
+import LocaleToggle from "@/components/LocaleToggle";
 
 const navItems = [
   { key: "home",    path: "" },
@@ -33,7 +34,6 @@ export default function Header() {
   const [loadingLogin, setLoadingLogin] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
-  // Close profile menu on outside click
   useEffect(() => {
     const handleOutside = (e: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
@@ -87,7 +87,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Desktop nav + profile + cart */}
+          {/* Desktop nav + profile + cart + language toggle */}
           <div className="hidden md:flex items-center gap-x-6">
             {navItems.map(({ key, path }) => (
               <Link
@@ -150,6 +150,9 @@ export default function Header() {
                 3
               </span>
             </button>
+
+            {/* Language toggle below cart */}
+            <LocaleToggle />
           </div>
 
           {/* Mobile menu toggle */}
@@ -214,19 +217,22 @@ export default function Header() {
             >
               ×
             </button>
-            <h2 className="text-xl font-bold mb-4 text-center">{t("auth.loginTitle")}</h2>
+            <h2 className="text-xl font-bold mb-4 text-center">
+              {t("auth.loginTitle")}
+            </h2>
             {loginError && (
-              <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">{loginError}</div>
+              <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
+                {loginError}
+              </div>
             )}
             <AuthForm mode="login" onSubmit={handleLogin} />
             {loadingLogin && (
-              <p className="mt-2 text-gray-600 text-center">{t("auth.loggingIn")}</p>
+              <p className="mt-2 text-gray-600 text-center">
+                {t("auth.loggingIn")}
+              </p>
             )}
             <p className="mt-4 text-sm text-gray-600 text-center">
-              {t("auth.noAccount")}{" "}
-              <Link href="/auth/register" className="text-red-600 hover:underline">
-                {t("auth.register")}
-              </Link>
+              {t("auth.noAccount")} <Link href="/auth/register" className="text-red-600 hover:underline">{t("auth.register")}</Link>
             </p>
           </div>
         </div>

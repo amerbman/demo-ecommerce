@@ -1,8 +1,8 @@
-// src/app/shop/page.tsx
+// src/app/[locale]/shop/page.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useParams } from "next/navigation";
 import Link from "next/link";
 import productsData from "../data/products.json";
 import ProductCard from "@/components/ProductCard";
@@ -11,7 +11,6 @@ import LogoFlosoft from "@/components/LogoFlosoft";
 import BrandInfo from "@/components/BrandInfo";
 import { useTranslations } from "next-intl";
 import { formatCategory } from "@/utils/formatCategory";
-import { useParams } from "next/navigation";
 
 interface Brand {
   name: string;
@@ -50,7 +49,7 @@ export default function ShopPage() {
     setCategory(searchParams.get("category") ?? "All");
   }, [searchParams]);
 
-  // Flatten and categorize all products from JSON data
+  // Flatten and categorize all products
   const allProducts = useMemo(
     () =>
       Object.keys(productsData.flora)
@@ -71,23 +70,24 @@ export default function ShopPage() {
     return ["All", ...Array.from(new Set(prods.map((p) => p.category)))];
   }, [allProducts, brand]);
 
-  // Filter products based on selected brand, category, and search query
+  // Filter products: brand, category, and search over name_ar/name
   const filtered = useMemo(
     () =>
       allProducts.filter((p) => {
         if (p.brand !== brand) return false;
         if (category !== "All" && p.category !== category) return false;
-        if (
-          searchQuery &&
-          !p.name.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-          return false;
+        if (searchQuery) {
+          const nameToSearch = (
+            locale === "ar" && p.name_ar ? p.name_ar : p.name
+          ).toLowerCase();
+          if (!nameToSearch.includes(searchQuery.toLowerCase())) return false;
+        }
         return true;
       }),
-    [allProducts, brand, category, searchQuery]
+    [allProducts, brand, category, searchQuery, locale]
   );
 
-  // Get the selected brand object
+  // Get brand object
   const selectedBrand = brands.find((b) => b.name === brand)!;
 
   return (
@@ -104,7 +104,9 @@ export default function ShopPage() {
                 setSearchQuery("");
               }}
               className={`p-2 rounded transition ${
-                brand === name ? "bg-gray-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+                brand === name
+                  ? "bg-gray-600 text-white"
+                  : "bg-gray-100 hover:bg-gray-200"
               }`}
             >
               <Logo className="h-12 w-auto" />
@@ -120,7 +122,7 @@ export default function ShopPage() {
         </div>
       </div>
 
-      {/* Category Buttons & Search */}
+      {/* Category & Search */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex flex-wrap gap-2">
           {categories.map((c) => (
@@ -128,7 +130,9 @@ export default function ShopPage() {
               key={c}
               onClick={() => setCategory(c)}
               className={`px-4 py-2 rounded transition ${
-                category === c ? "bg-red-600 text-white" : "bg-gray-100 hover:bg-gray-200"
+                category === c
+                  ? "bg-red-600 text-white"
+                  : "bg-gray-100 hover:bg-gray-200"
               }`}
             >
               {t(`categories.${formatCategory(c)}`)}
@@ -147,21 +151,32 @@ export default function ShopPage() {
       {/* Product Grid */}
       {filtered.length > 0 ? (
         <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {filtered.map((p) => (
-            <li key={p.id}>
-              <Link href={`/${locale}/product/${p.id}`} className="block">
-                <ProductCard
-                  name={p.name}
-                  price={p.price ?? 0}
-                  image={p.image[0]}
-                  id={p.id}
-                />
-              </Link>
-            </li>
-          ))}
+          {filtered.map((p) => {
+            const displayName =
+              locale === "ar" && p.name_ar ? p.name_ar : p.name;
+            const displayDesc =
+              locale === "ar" && p.description_ar
+                ? p.description_ar
+                : p.description;
+            return (
+              <li key={p.id}>
+                <Link href={`/${locale}/product/${p.id}`} className="block">
+                  <ProductCard
+                    name={displayName}
+                    description={displayDesc}
+                    price={p.price ?? 0}
+                    image={p.image[0]}
+                    id={p.id}
+                  />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       ) : (
-        <p className="text-center text-gray-500">{t("noProductsFound")}</p>
+        <p className="text-center text-gray-500">
+          {t("noProductsFound")}
+        </p>
       )}
     </main>
   );
