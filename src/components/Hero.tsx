@@ -1,15 +1,15 @@
-// components/Hero.tsx
 "use client";
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 
 const Hero: React.FC = () => {
   const t = useTranslations("hero");
   const params = useParams();
-  const locale = params.locale || 'en';
+  const locale = params.locale ?? 'en';
 
   const navItems = [
     { label: 'Shop', path: `/${locale}/shop`, isButton: true },
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
           </p>
           {navItems.map(({ label, path, isButton }) =>
             isButton ? (
-              <Link key={label} href={path} passHref>
+              <Link key={label} href={path}>
                 <button className="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded font-medium transition">
                   {t('cta')}
                 </button>
@@ -52,11 +52,14 @@ const Hero: React.FC = () => {
         {/* Floating Card */}
         <div className="bg-white p-4 lg:p-6 rounded-2xl shadow-xl w-full max-w-sm lg:w-96 mx-auto animate-slow-rotate mt-4 lg:mt-0">
           <div className="flex flex-col items-center">
-            <img
-              src="/product_images/flora/brushes/brushes_1.1.jpg"
-              alt={t('productTitle')}
-              className="w-full h-40 lg:h-52 rounded-xl object-cover mb-4"
-            />
+            <div className="relative w-full h-40 lg:h-52 rounded-xl mb-4 overflow-hidden">
+              <Image
+                src="/product_images/flora/brushes/brushes_1.1.jpg"
+                alt={t('productTitle')}
+                fill
+                className="object-cover"
+              />
+            </div>
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-2">
               {t('productTitle')}
             </h3>

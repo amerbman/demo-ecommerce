@@ -1,8 +1,8 @@
-// src/app/components/ProductCard.tsx
 "use client";
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
@@ -11,7 +11,7 @@ export interface StaticProduct {
   name: string;
   price: number;
   image: string;
-  description?: string;  // ← added this line
+  description?: string;
 }
 
 export default function ProductCard({
@@ -19,20 +19,21 @@ export default function ProductCard({
   name,
   price,
   image,
-  description,      // ← include it here
+  description,
 }: StaticProduct) {
   const t = useTranslations("productCard");
   const params = useParams();
-  const locale = params.locale || "en";
+  const locale = params.locale as string || "en";
 
   return (
-    <Link href={`/${locale}/product/${id}`} passHref>
+    <Link href={`/${locale}/product/${id}`}>
       <div className="w-full max-w-xs mx-auto border rounded-md overflow-hidden shadow hover:shadow-lg transition-transform transform hover:-translate-y-1">
         <div className="relative w-full h-60">
-          <img
+          <Image
             src={image}
             alt={name}
-            className="object-contain w-full h-full rounded-md"
+            fill
+            className="object-contain rounded-md"
           />
         </div>
         <div className="p-2 flex flex-col">

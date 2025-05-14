@@ -1,8 +1,8 @@
-// src/app/components/FeaturedProducts.tsx
 "use client";
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 
@@ -15,7 +15,7 @@ interface Product {
 export default function FeaturedProducts() {
   const t = useTranslations('featuredProducts');
   const params = useParams();
-  const locale = params.locale || 'en';
+  const locale = (params.locale as string) || 'en';
 
   const products: Product[] = [
     { id: "F400", price: 19.99, image: "/product_images/flora/cleaning_sets/cleaning_set_1.jpg" },
@@ -30,12 +30,19 @@ export default function FeaturedProducts() {
         <h2 className="text-2xl font-bold mb-8">{t('heading')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {products.map((product) => (
-            <Link href={`/${locale}/product/${product.id}`} key={product.id}>
-              <div className="bg-white p-3 rounded-lg shadow-md flex flex-col justify-between h-full max-w-xs mx-auto">
-                <img
+            <Link
+              href={`/${locale}/product/${product.id}`}
+              key={product.id}
+              className="block max-w-xs mx-auto"
+            >
+              <div className="bg-white p-3 rounded-lg shadow-md flex flex-col justify-between h-full">
+                {/* Use fixed width/height for Image to ensure rendering */}
+                <Image
                   src={product.image}
                   alt={t(`products.${product.id}.name`)}
-                  className="w-full h-34 object-contain mb-2"
+                  width={150}
+                  height={150}
+                  className="object-contain mb-2 w-full h-auto"
                 />
                 <h3 className="text-base font-semibold mb-1 text-center">
                   {t(`products.${product.id}.name`)}

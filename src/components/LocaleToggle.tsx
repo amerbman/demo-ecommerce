@@ -1,37 +1,37 @@
-// src/components/LocaleToggle.tsx
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname, useParams, useSearchParams } from 'next/navigation';
-import React from 'react';
+import React from "react";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 /**
  * A language switcher that toggles between 'en' and 'ar' by rewriting the URL prefix.
  * Preserves any existing query parameters.
  */
 export default function LocaleToggle() {
+  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const params = useParams() as { locale?: string };
-  const locale = params.locale ?? 'en';
-  const otherLocale = locale === 'en' ? 'ar' : 'en';
 
-  // Replace only the first path segment (/en or /ar)
-  const regex = new RegExp(`^/${locale}(?=$|/)`);
-  let newPath = pathname;
-  if (regex.test(pathname)) {
-    newPath = pathname.replace(regex, `/${otherLocale}`);
-  } else {
-    newPath = `/${otherLocale}${pathname}`;
-  }
+  // Determine current and next locale
+  const segments = pathname.split("/");
+  const currentLocale = segments[1] || "en";
+  const nextLocale = currentLocale === "en" ? "ar" : "en";
 
-  // Reattach any search params
+  // Construct new path by replacing or prefixing locale
+  const newPath = pathname.startsWith(`/${currentLocale}`)
+    ? pathname.replace(`/${currentLocale}`, `/${nextLocale}`)
+    : `/${nextLocale}${pathname}`;
+
+  // Reattach any query params
   const queryString = searchParams.toString();
   const href = queryString ? `${newPath}?${queryString}` : newPath;
 
   return (
-    <Link href={href} locale={false} className="px-3 py-1 border rounded hover:bg-gray-100">
-      {locale === 'en' ? 'عربي' : 'English'}
-    </Link>
+    <button
+      onClick={() => router.push(href)}
+      className="px-3 py-1 border rounded hover:bg-gray-100"
+    >
+      {currentLocale === "en" ? "عربي" : "English"}
+    </button>
   );
 }

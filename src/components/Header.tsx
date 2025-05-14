@@ -1,7 +1,7 @@
-// components/Header.tsx
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useSession, signOut, signIn } from "next-auth/react";
 import { useRouter, useParams } from "next/navigation";
@@ -12,7 +12,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import AuthForm from "@/components/AuthForm";
 import { useTranslations } from "next-intl";
-import LocaleToggle from "@/components/LocaleToggle";
+
+// Load LocaleToggle only on client to avoid SSR mismatch
+const LocaleToggle = dynamic(() => import("@/components/LocaleToggle"), { ssr: false });
 
 const navItems = [
   { key: "home",    path: "" },
