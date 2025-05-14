@@ -23,7 +23,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
     >
       {mode === "register" && (
         <input
-          type="text"
+          type="text  "
           placeholder={t("namePlaceholder")}
           value={name}
           onChange={e => setName(e.target.value)}

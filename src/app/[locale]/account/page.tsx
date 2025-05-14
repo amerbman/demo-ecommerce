@@ -1,7 +1,7 @@
-import { useTranslations } from 'next-intl';
+
 // src/app/account/page.tsx
 "use client";
-
+import { useTranslations } from 'next-intl';
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
