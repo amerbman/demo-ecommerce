@@ -1,5 +1,4 @@
-
-// src/app/account/page.tsx
+// src/app/[locale]/account/page.tsx
 "use client";
 import { useTranslations } from 'next-intl';
 import { useSession } from "next-auth/react";
