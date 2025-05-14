@@ -1,12 +1,11 @@
+// src/components/ProductCard.tsx
 "use client";
 
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
 
-export interface StaticProduct {
-  id: string;
+export interface ProductCardProps {
   name: string;
   price: number;
   image: string;
@@ -14,15 +13,12 @@ export interface StaticProduct {
 }
 
 export default function ProductCard({
-  id,
   name,
   price,
   image,
   description,
-}: StaticProduct) {
+}: ProductCardProps) {
   const t = useTranslations("productCard");
-  const params = useParams();
-  const locale = (params.locale as string) || "en";
 
   return (
     <div className="w-full max-w-xs mx-auto border rounded-md overflow-hidden shadow hover:shadow-lg transition-transform transform hover:-translate-y-1">

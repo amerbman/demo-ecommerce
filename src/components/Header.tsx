@@ -1,25 +1,24 @@
-// src/components/Header.tsx
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useSession, signOut, signIn } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useRouter, useParams } from "next/navigation";
 import LogoFlora from "./LogoFlora";
 import LogoFlosoft from "./LogoFlosoft";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
-import AuthForm from "@/components/AuthForm";
 import { useTranslations } from "next-intl";
 
+// only load the toggle on client to avoid SSR mismatch
 const LocaleToggle = dynamic(() => import("@/components/LocaleToggle"), { ssr: false });
 
 const navItems = [
-  { key: "home", path: "" },
-  { key: "shop", path: "shop" },
-  { key: "about", path: "about" },
+  { key: "home",    path: "" },
+  { key: "shop",    path: "shop" },
+  { key: "about",   path: "about" },
   { key: "contact", path: "contact" },
   { key: "support", path: "support" },
 ];
@@ -33,9 +32,6 @@ export default function Header() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [loginError, setLoginError] = useState<string | null>(null);
-  const [loadingLogin, setLoadingLogin] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,26 +43,6 @@ export default function Header() {
     document.addEventListener("mousedown", handleOutside);
     return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
-
-  const openLogin = () => {
-    setLoginError(null);
-    setShowLoginModal(true);
-    setProfileMenuOpen(false);
-  };
-  const closeLogin = () => setShowLoginModal(false);
-
-  const handleLogin = async (data: { email: string; password: string }) => {
-    setLoginError(null);
-    setLoadingLogin(true);
-    const res = await signIn("credentials", { redirect: false, ...data });
-    setLoadingLogin(false);
-    if (res?.error) {
-      setLoginError(t("auth.invalidCredentials"));
-    } else {
-      closeLogin();
-      router.refresh();
-    }
-  };
 
   return (
     <>
@@ -96,6 +72,7 @@ export default function Header() {
             </div>
           </div>
 
+          {/* Desktop nav + profile + cart + language toggle */}
           <div className="hidden md:flex items-center gap-x-6">
             {navItems.map(({ key, path }) => (
               <Link
@@ -107,6 +84,7 @@ export default function Header() {
               </Link>
             ))}
 
+            {/* Profile icon & menu */}
             <div className="relative inline-block" ref={profileRef}>
               <button
                 onClick={() => setProfileMenuOpen(o => !o)}
@@ -114,7 +92,7 @@ export default function Header() {
               >
                 <FontAwesomeIcon icon={faUser} className="text-2xl" />
                 {status === "authenticated" && (
-                  <span className="ml-2 text-gray-700">
+                  <span className={isRtl ? "mr-2" : "ml-2"}>
                     {t("header.hello")}, {session.user?.name}
                   </span>
                 )}
@@ -122,7 +100,10 @@ export default function Header() {
               {profileMenuOpen && (
                 <div className="absolute right-0 top-full mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-50">
                   {status === "authenticated" && (
-                    <Link href="/account" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      href="/account"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       {t("header.myAccount")}
                     </Link>
                   )}
@@ -136,7 +117,7 @@ export default function Header() {
                   )}
                   {status === "unauthenticated" && (
                     <button
-                      onClick={openLogin}
+                      onClick={() => router.push(`/${locale}/auth/login`)}
                       className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       {t("header.login")}
@@ -146,6 +127,7 @@ export default function Header() {
               )}
             </div>
 
+            {/* Cart */}
             <button className="relative inline-flex items-center text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium">
               <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
               {t("header.cart")}
@@ -154,17 +136,61 @@ export default function Header() {
               </span>
             </button>
 
+            {/* Language toggle */}
             <LocaleToggle />
           </div>
 
-          <button onClick={() => setMobileOpen(o => !o)} className="md:hidden text-gray-700 hover:text-red-600">
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setMobileOpen(o => !o)}
+            className="md:hidden text-gray-700 hover:text-red-600"
+          >
             <FontAwesomeIcon icon={faBars} className="text-2xl" />
           </button>
         </div>
 
-        {mobileOpen && <div className="md:hidden p-4 space-y-2 bg-white shadow-lg">{/* mobile menu */}</div>}
+        {/* Mobile menu panel */}
+        {mobileOpen && (
+          <div className="md:hidden p-4 space-y-2 bg-white shadow-lg">
+            {navItems.map(({ key, path }) => (
+              <Link
+                key={key}
+                href={`/${locale}/${path}`}
+                className="block text-gray-700 hover:text-red-600 font-medium transition"
+              >
+                {t(`navbar.${key}`)}
+              </Link>
+            ))}
+            <div className="border-t mt-2 pt-2" />
+            {status === "loading" ? null : session ? (
+              <>
+                <span className="block">
+                  {t("header.hello")}, {session.user?.name}
+                </span>
+                <Link
+                  href={`/${locale}/account`}
+                  className="block text-gray-700 hover:text-red-600 font-medium"
+                >
+                  {t("header.myAccount")}
+                </Link>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="block text-gray-700 hover:text-red-600 font-medium"
+                >
+                  {t("header.logout")}
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => router.push(`/${locale}/auth/login`)}
+                className="block text-gray-700 hover:text-red-600 font-medium"
+              >
+                {t("header.login")}
+              </button>
+            )}
+          </div>
+        )}
       </nav>
-      {showLoginModal && <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">{/* login modal */}</div>}
     </>
   );
 }
