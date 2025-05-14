@@ -1,4 +1,3 @@
-// src/app/[locale]/product/[id]/page.tsx
 "use client";
 
 import { notFound } from "next/navigation";
@@ -12,36 +11,33 @@ import { useParams } from "next/navigation";
 
 export default function ProductPage() {
   const t = useTranslations("Product");
-  const params = useParams();
-  const locale = (params.locale as string) || "en";
-  const productId = params.id as string;
+  const params = useParams() as { locale?: string; id?: string };
+  const locale = params.locale ?? "en";
+  const productId = params.id ?? "";
 
-  // Extract only array entries from the raw JSON
-  const floraRaw = (productsData as any).flora;
-  const productArrays = Object.values(floraRaw).filter(Array.isArray) as Product[][];
-  const allProducts = productArrays.flat();
+  // Treat flora as unknown and filter arrays
+  const floraRaw = productsData.flora as unknown;
+  const entries = Object.entries(floraRaw as Record<string, unknown>)
+    .filter(([, v]) => Array.isArray(v)) as [string, Product[]][];
 
-  // Find current product
-  const product = allProducts.find((p) => p.id === productId);
+  // Flatten products
+  const allProducts = entries.flatMap(([, arr]) => arr);
+
+  // Find selected product
+  const product = allProducts.find(p => p.id === productId);
   if (!product) return notFound();
 
-  // Determine its category for related products
-  const entries = Object.entries(floraRaw).filter(([, v]) => Array.isArray(v)) as [string, Product[]][];
-  const productCategory = entries.find(([, arr]) => arr.some((p) => p.id === product.id))?.[0];
-
-  // Get related products
-  const relatedProducts: Product[] = productCategory
-    ? entries
-        .find(([key]) => key === productCategory)![1]
-        .filter((p) => p.id !== product.id)
+  // Related products in same category
+  const productCategory = entries.find(([, arr]) => arr.some(p => p.id === product.id))?.[0];
+  const relatedProducts = productCategory
+    ? (entries.find(([k]) => k === productCategory)![1] as Product[])
+        .filter(p => p.id !== product.id)
         .slice(0, 4)
     : [];
 
-  // Choose Arabic fields if locale is 'ar'
-  const displayName =
-    locale === "ar" && (product as any).name_ar ? (product as any).name_ar : product.name;
-  const displayDesc =
-    locale === "ar" && (product as any).description_ar ? (product as any).description_ar : product.description;
+  // Display fields based on locale
+  const displayName = locale === "ar" && product.name_ar ? product.name_ar : product.name;
+  const displayDesc = locale === "ar" && product.description_ar ? product.description_ar : product.description;
 
   return (
     <main className="container mx-auto py-16 px-4">
@@ -56,7 +52,7 @@ export default function ProductPage() {
           <h1 className="text-3xl font-bold">{displayName}</h1>
           <p className="text-gray-600">{displayDesc || t("noDescription")}</p>
           <p className="text-2xl font-semibold text-red-600">
-            ${product.price?.toFixed(2)}
+            ${ (product.price ?? 0).toFixed(2) }
           </p>
           <p className={`font-medium ${product.in_stock ? "text-green-600" : "text-red-600"}`}>
             {product.in_stock ? t("inStock") : t("outOfStock")}
@@ -86,24 +82,17 @@ export default function ProductPage() {
         <section className="mt-12">
           <h2 className="text-2xl font-bold">{t("relatedProducts")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {relatedProducts.map((rel) => {
-              const name =
-                locale === "ar" && (rel as any).name_ar ? (rel as any).name_ar : rel.name;
+            {relatedProducts.map(rel => {
+              const name = locale === "ar" && rel.name_ar ? rel.name_ar : rel.name;
               return (
-                <Link
-                  key={rel.id}
-                  href={`/${locale}/product/${rel.id}`}
-                  className="block bg-white p-4 rounded shadow hover:shadow-lg"
-                >
-                  <Image
-                    src={rel.image[0]}
-                    alt={name}
-                    width={200}
-                    height={200}
-                    className="w-full h-40 object-contain mb-2"
-                  />
+                <Link key={rel.id} href={`/${locale}/product/${rel.id}`} className="block bg-white p-4 rounded shadow hover:shadow-lg">
+                  <div className="relative w-full h-40 mb-2">
+                    <Image src={rel.image[0]} alt={name} fill className="object-contain" />
+                  </div>
                   <h3 className="text-lg font-semibold">{name}</h3>
-                  <p className="text-gray-600">${rel.price?.toFixed(2)}</p>
+                  <p className="text-gray-600">
+                    ${ (rel.price ?? 0).toFixed(2) }
+                  </p>
                 </Link>
               );
             })}

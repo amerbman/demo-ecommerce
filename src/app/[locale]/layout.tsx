@@ -17,12 +17,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   const isRtl = locale === "ar";
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Riyadh">
-      <ClientLayout>
-        <div dir={isRtl ? "rtl" : "ltr"} className={isRtl ? "rtl" : "ltr"}>
-          {children}
-        </div>
-      </ClientLayout>
-    </NextIntlClientProvider>
+    <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Riyadh">
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
