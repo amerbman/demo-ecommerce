@@ -1,10 +1,10 @@
-// src/app/[locale]/shop/page.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useParams } from "next/navigation";
 import Link from "next/link";
 import productsData from "../data/products.json";
+import type { Product } from "../../../types/product";
 import ProductCard from "@/components/ProductCard";
 import LogoFlora from "@/components/LogoFlora";
 import LogoFlosoft from "@/components/LogoFlosoft";
@@ -23,8 +23,14 @@ export default function ShopPage() {
   const t = useTranslations("Shop");
   const searchParams = useSearchParams();
   const params = useParams();
-  const locale = params.locale || "en";
+  const locale = params.locale ?? "en";
   const initialCategory = searchParams.get("category") ?? "All";
+
+  // Treat flora entry as unknown and filter arrays at runtime
+  const floraRaw = (productsData.flora as unknown) as Record<string, unknown>;
+  const floraEntries = Object.entries(floraRaw).filter(
+    ([, value]) => Array.isArray(value)
+  ) as [string, Product[]][];
 
   const brands: Brand[] = [
     {
@@ -49,45 +55,42 @@ export default function ShopPage() {
     setCategory(searchParams.get("category") ?? "All");
   }, [searchParams]);
 
-  // Flatten and categorize all products
-  const allProducts = useMemo(
+  // Flatten and categorize only array entries
+  const allProducts: (Product & { category: string; brand: string })[] = useMemo(
     () =>
-      Object.keys(productsData.flora)
-        .filter((key) => Array.isArray((productsData.flora as any)[key]))
-        .flatMap((cat) =>
-          (productsData.flora as any)[cat].map((p: any) => ({
-            ...p,
-            category: cat,
-            brand: "Flora",
-          }))
-        ),
-    []
+      floraEntries.flatMap(([cat, arr]) =>
+        arr.map((p) => ({
+          ...p,
+          category: cat,
+          brand: "Flora",
+        }))
+      ),
+    [floraEntries]
   );
 
-  // Extract unique categories based on brand
+  // Extract unique categories based on selected brand
   const categories = useMemo(() => {
     const prods = allProducts.filter((p) => p.brand === brand);
     return ["All", ...Array.from(new Set(prods.map((p) => p.category)))];
   }, [allProducts, brand]);
 
-  // Filter products: brand, category, and search over name_ar/name
+  // Filter products by brand, category, and search query
   const filtered = useMemo(
     () =>
       allProducts.filter((p) => {
         if (p.brand !== brand) return false;
         if (category !== "All" && p.category !== category) return false;
         if (searchQuery) {
-          const nameToSearch = (
-            locale === "ar" && p.name_ar ? p.name_ar : p.name
-          ).toLowerCase();
-          if (!nameToSearch.includes(searchQuery.toLowerCase())) return false;
+          const nameToSearch =
+            locale === "ar" && p.name_ar ? p.name_ar : p.name;
+          if (!nameToSearch.toLowerCase().includes(searchQuery.toLowerCase()))
+            return false;
         }
         return true;
       }),
     [allProducts, brand, category, searchQuery, locale]
   );
 
-  // Get brand object
   const selectedBrand = brands.find((b) => b.name === brand)!;
 
   return (
@@ -107,7 +110,7 @@ export default function ShopPage() {
                 brand === name
                   ? "bg-gray-600 text-white"
                   : "bg-gray-100 hover:bg-gray-200"
-              }`}
+              }`}  
             >
               <Logo className="h-12 w-auto" />
             </button>
@@ -133,7 +136,7 @@ export default function ShopPage() {
                 category === c
                   ? "bg-red-600 text-white"
                   : "bg-gray-100 hover:bg-gray-200"
-              }`}
+              }`}  
             >
               {t(`categories.${formatCategory(c)}`)}
             </button>
@@ -174,9 +177,7 @@ export default function ShopPage() {
           })}
         </ul>
       ) : (
-        <p className="text-center text-gray-500">
-          {t("noProductsFound")}
-        </p>
+        <p className="text-center text-gray-500">{t("noProductsFound")}</p>
       )}
     </main>
   );

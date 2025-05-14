@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { signUp } from "@/lib/auth";
 import AuthForm from "@/components/AuthForm";
 
@@ -14,8 +15,9 @@ export default function RegisterPage() {
       setError(null);
       await signUp(data);
       router.push("/auth/login");
-    } catch (err: any) {
-      setError(err.message || "Registration failed");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Registration failed";
+      setError(message);
     }
   };
 
@@ -34,9 +36,9 @@ export default function RegisterPage() {
 
         <p className="mt-6 text-center text-sm text-gray-500">
           Already have an account?{" "}
-          <a href="/auth/login" className="text-red-600 hover:underline">
+          <Link href="/auth/login" className="text-red-600 hover:underline">
             Log In
-          </a>
+          </Link>
         </p>
       </div>
     </main>

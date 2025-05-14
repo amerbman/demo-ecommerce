@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 // src/app/page.tsx
 import { redirect } from 'next/navigation';
 

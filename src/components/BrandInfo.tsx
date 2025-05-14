@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 
 interface BrandInfoProps {
   brand: string;
@@ -10,8 +9,6 @@ interface BrandInfoProps {
 }
 
 export default function BrandInfo({ brand, description, bannerImage }: BrandInfoProps) {
-  const t = useTranslations("brandInfo");
-
   return (
     <div className="relative my-8 h-20 sm:h-24 overflow-hidden" style={{ perspective: 800 }}>
       <AnimatePresence mode="wait">
@@ -29,7 +26,7 @@ export default function BrandInfo({ brand, description, bannerImage }: BrandInfo
             className="absolute inset-0 bg-center"
             style={{ 
               backgroundImage: `url(${bannerImage})`, 
-              backgroundSize: '50%',  // Adjust zoom level
+              backgroundSize: '50%',  
               backgroundPosition: 'center'
             }}
           />
@@ -37,7 +34,7 @@ export default function BrandInfo({ brand, description, bannerImage }: BrandInfo
           {/* Overlay */}
           <div className="relative z-10 flex items-center justify-center h-full bg-black bg-opacity-30">
             <p className="px-4 text-center text-white text-base sm:text-lg md:text-xl font-medium">
-              {t(`brands.${brand}.description`)}
+              {description}
             </p>
           </div>
         </motion.div>

@@ -1,8 +1,9 @@
-// components/Footer.tsx
 "use client";
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import LogoFlora from "./LogoFlora";
 import LogoFlosoft from "./LogoFlosoft";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +16,9 @@ import { useTranslations } from "next-intl";
 
 const Footer: React.FC = () => {
   const t = useTranslations("footer");
+  const params = useParams();
+  const locale = params.locale ?? "en";
+
   return (
     <footer className="bg-gray-900 text-gray-300">
       {/* Top grid */}
@@ -48,11 +52,31 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-start">
           <h4 className="text-white font-semibold mb-4">{t("shop")}</h4>
           <ul className="space-y-2 text-gray-400 text-left">
-            <li><a href="/shop/brooms" className="hover:text-red-600">{t("brooms")}</a></li>
-            <li><a href="/shop/brushes" className="hover:text-red-600">{t("brushes")}</a></li>
-            <li><a href="/shop/mops" className="hover:text-red-600">{t("mops")}</a></li>
-            <li><a href="/shop/kits" className="hover:text-red-600">{t("kits")}</a></li>
-            <li><a href="/shop/accessories" className="hover:text-red-600">{t("accessories")}</a></li>
+            <li>
+              <Link href={`/${locale}/shop/brooms`} className="hover:text-red-600">
+                {t("brooms")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/shop/brushes`} className="hover:text-red-600">
+                {t("brushes")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/shop/mops`} className="hover:text-red-600">
+                {t("mops")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/shop/kits`} className="hover:text-red-600">
+                {t("kits")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/shop/accessories`} className="hover:text-red-600">
+                {t("accessories")}
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -60,11 +84,31 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-start">
           <h4 className="text-white font-semibold mb-4">{t("support")}</h4>
           <ul className="space-y-2 text-gray-400 text-left">
-            <li><a href="/contact" className="hover:text-red-600">{t("contactUs")}</a></li>
-            <li><a href="/faqs" className="hover:text-red-600">{t("faqs")}</a></li>
-            <li><a href="/shipping" className="hover:text-red-600">{t("shipping")}</a></li>
-            <li><a href="/care" className="hover:text-red-600">{t("care")}</a></li>
-            <li><a href="/warranty" className="hover:text-red-600">{t("warranty")}</a></li>
+            <li>
+              <Link href={`/${locale}/contact`} className="hover:text-red-600">
+                {t("contactUs")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/faqs`} className="hover:text-red-600">
+                {t("faqs")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/shipping`} className="hover:text-red-600">
+                {t("shipping")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/care`} className="hover:text-red-600">
+                {t("care")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${locale}/warranty`} className="hover:text-red-600">
+                {t("warranty")}
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -92,7 +136,7 @@ const Footer: React.FC = () => {
       <div className="border-t border-gray-800 py-6 text-center text-gray-500 text-xs sm:text-sm">
         {t("copyright")}
         <p className="mt-1">
-          {t("developedByPrefix")}{" "}
+          {t("developedByPrefix")} {" "}
           <a
             href="https://amer-baosman.com/"
             target="_blank"
