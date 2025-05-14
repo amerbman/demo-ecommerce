@@ -219,7 +219,8 @@
     "wipers_squeegees": "Wipers & Squeegees",
     "toilet_brushes": "Toilet Brushes",
     "metal_floor_pane_wipers": "Metal Floor & Pane Wipers"
-  }
+  },
+    "loadMore": "Load More"
 },
 "Support": {
   "support": "Support",
@@ -231,7 +232,29 @@
   "needHelp": "Still need help?",
   "contactSupport": "Reach out to our support team via",
   "contactPage": "Contact Page"
-}
+},
+"Cart": {
+  "title": "Your Cart",
+  "empty": "Your cart is empty.",
+  "continueShopping": "Continue shopping",
+  "remove": "Remove",
+  "total": "Total",
+  "clearCart": "Clear cart",
+  "checkout": "Proceed to Checkout"
+},
+"Checkout": {
+    "title": "Checkout",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "address": "Street Address",
+    "city": "City",
+    "postalCode": "Postal Code",
+    "country": "Country",
+    "orderTotal": "Order Total",
+    "placeOrder": "Place Order",
+    "processing": "Processing…",
+    "errorOccurred": "An error occurred. Please try again."
+  }
 
 
 }

@@ -19,6 +19,9 @@ interface Brand {
   bannerImage: string;
 }
 
+// Number of products to show per page
+const PRODUCTS_PER_PAGE = 12;
+
 export default function ShopPage() {
   const t = useTranslations("Shop");
   const searchParams = useSearchParams();
@@ -50,10 +53,16 @@ export default function ShopPage() {
   const [brand, setBrand] = useState<string>(brands[0].name);
   const [category, setCategory] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [visibleCount, setVisibleCount] = useState<number>(PRODUCTS_PER_PAGE);
 
   useEffect(() => {
     setCategory(searchParams.get("category") ?? "All");
   }, [searchParams]);
+
+  // Reset pagination when filters change
+  useEffect(() => {
+    setVisibleCount(PRODUCTS_PER_PAGE);
+  }, [brand, category, searchQuery]);
 
   // Flatten and categorize only array entries
   const allProducts: (Product & { category: string; brand: string })[] = useMemo(
@@ -110,7 +119,7 @@ export default function ShopPage() {
                 brand === name
                   ? "bg-gray-600 text-white"
                   : "bg-gray-100 hover:bg-gray-200"
-              }`}  
+              }`}
             >
               <Logo className="h-12 w-auto" />
             </button>
@@ -136,7 +145,7 @@ export default function ShopPage() {
                 category === c
                   ? "bg-red-600 text-white"
                   : "bg-gray-100 hover:bg-gray-200"
-              }`}  
+              }`}
             >
               {t(`categories.${formatCategory(c)}`)}
             </button>
@@ -151,31 +160,44 @@ export default function ShopPage() {
         />
       </div>
 
-      {/* Product Grid */}
+      {/* Product Grid with pagination */}
       {filtered.length > 0 ? (
-        <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {filtered.map((p) => {
-            const displayName =
-              locale === "ar" && p.name_ar ? p.name_ar : p.name;
-            const displayDesc =
-              locale === "ar" && p.description_ar
-                ? p.description_ar
-                : p.description;
-            return (
-              <li key={p.id}>
-                <Link href={`/${locale}/product/${p.id}`} className="block">
-                  <ProductCard
-                    name={displayName}
-                    description={displayDesc}
-                    price={p.price ?? 0}
-                    image={p.image[0]}
-                    id={p.id}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <>
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {filtered.slice(0, visibleCount).map((p) => {
+              const displayName =
+                locale === "ar" && p.name_ar ? p.name_ar : p.name;
+              const displayDesc =
+                locale === "ar" && p.description_ar
+                  ? p.description_ar
+                  : p.description;
+              return (
+                <li key={p.id}>
+                  <Link href={`/${locale}/product/${p.id}`} className="block">
+                    <ProductCard
+                      name={displayName}
+                      description={displayDesc}
+                      price={p.price ?? 0}
+                      image={p.image[0]}
+                      id={p.id}
+                    />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          {visibleCount < filtered.length && (
+            <div className="text-center mt-8">
+              <button
+                onClick={() => setVisibleCount((c) => c + PRODUCTS_PER_PAGE)}
+                className="px-6 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              >
+                {t("loadMore")}
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <p className="text-center text-gray-500">{t("noProductsFound")}</p>
       )}

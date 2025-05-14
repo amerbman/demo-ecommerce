@@ -11,6 +11,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useTranslations } from "next-intl";
+import { useCart } from "@/context/CartContext";
 
 // only load the toggle on client to avoid SSR mismatch
 const LocaleToggle = dynamic(() => import("@/components/LocaleToggle"), { ssr: false });
@@ -29,6 +30,7 @@ export default function Header() {
   const { locale } = useParams() as { locale?: string };
   const isRtl = locale === "ar";
   const router = useRouter();
+  const { totalQuantity } = useCart();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
@@ -128,13 +130,16 @@ export default function Header() {
             </div>
 
             {/* Cart */}
-            <button className="relative inline-flex items-center text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium">
-              <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-              {t("header.cart")}
-              <span className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                3
-              </span>
-            </button>
+            <button
+                onClick={() => router.push(`/${locale}/cart`)}
+                className="relative inline-flex items-center text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium"
+              >
+                <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
+                {t("header.cart")}
+                <span className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalQuantity}
+                </span>
+              </button>
 
             {/* Language toggle */}
             <LocaleToggle />

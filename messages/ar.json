@@ -225,7 +225,8 @@
       "wipers_squeegees": "المماسح والمكاشط",
       "toilet_brushes": "فرشاة المرحاض",
       "metal_floor_pane_wipers": "مماسح الأرضية والممسحات المعدنية"
-    }
+    },
+    "loadMore": " المزيد"
   },
   "Support": {
     "support": "الدعم",
@@ -237,6 +238,28 @@
     "needHelp": "هل ما زلت بحاجة إلى مساعدة؟",
     "contactSupport": "تواصل مع فريق الدعم عبر",
     "contactPage": "صفحة التواصل"
+  },
+  "Cart": {
+    "title": "سلة التسوق الخاصة بك",
+    "empty": "سلتك فارغة.",
+    "continueShopping": "مواصلة التسوق",
+    "remove": "إزالة",
+    "total": "الإجمالي",
+    "clearCart": "تفريغ السلة",
+    "checkout": "إتمام الشراء"
+  },
+  "Checkout": {
+    "title": "إتمام الشراء",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "address": "العنوان",
+    "city": "المدينة",
+    "postalCode": "رمز بريدي",
+    "country": "الدولة",
+    "orderTotal": "إجمالي الطلب",
+    "placeOrder": "إتمام الطلب",
+    "processing": "جاري المعالجة…",
+    "errorOccurred": "حدث خطأ. الرجاء المحاولة مرة أخرى."
   }
 
 }

@@ -1,4 +1,3 @@
-// src/components/ClientLayout.tsx
 "use client";
 
 import { usePathname } from "next/navigation";
@@ -8,6 +7,7 @@ import "../styles/nprogress.css";
 import { SessionProvider } from "next-auth/react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { CartProvider } from "@/context/CartContext";
 
 NProgress.configure({ showSpinner: false, speed: 1200, trickleSpeed: 400, minimum: 0.1 });
 
@@ -29,9 +29,11 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
 
   return (
     <SessionProvider>
-      {!isAuthRoute && <Header />}
-      {children}
-      {!isAuthRoute && <Footer />}
+      <CartProvider>
+        {!isAuthRoute && <Header />}
+        {children}
+        {!isAuthRoute && <Footer />}
+      </CartProvider>
     </SessionProvider>
   );
 }
