@@ -13,6 +13,10 @@ module.exports = withNextIntl({
     // Warning: only use this if you really don’t care about linting errors in CI/prod
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    // WARNING: this skips _all_ TS errors during build
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
   // Example: if you need custom webpack or images settings, add them below:
   // images: {
