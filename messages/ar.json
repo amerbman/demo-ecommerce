@@ -5,7 +5,8 @@
     "myAccount": "حسابي",
     "logout": "تسجيل الخروج",
     "login": "تسجيل الدخول",
-    "cart": "عربة التسوق"
+    "cart": "عربة التسوق",
+    "hello": "مرحبا"
   },
   "navbar": {
     "home": "الرئيسية",
@@ -29,7 +30,9 @@
     "productTitle": "تقنية الألياف الدقيقة",
     "productDescription": "ألياف فائقة الامتصاص لتنظيف خالٍ من الأوساخ.",
     "prev": "السابق",
-    "next": "التالي"
+    "next": "التالي",
+    "shopLabel": "تسوق الآن"      
+
   },
 
   "footer": {
@@ -144,17 +147,14 @@
     }
   }
 },
-"order": {
-  "1234": {
-    "status": {
-      "shipped": "تم الشحن"
-    }
-  },
-  "5678": {
-    "status": {
-      "processing": "قيد المعالجة"
-    }
-  }
+"Orders": {
+  "title": "طلباتي",
+  "orderId": "رقم الطلب",
+  "date": "التاريخ",
+  "total": "الإجمالي",
+  "items": "عدد المنتجات",
+  "view": "عرض التفاصيل",
+  "empty": "لا توجد طلبات."
 },
 "productCard": {
     "addToCart": "أضف إلى السلة"
@@ -249,17 +249,31 @@
     "checkout": "إتمام الشراء"
   },
   "Checkout": {
-    "title": "إتمام الشراء",
+    "title": "إتمام الطلب",
+    "itemsInCart": "العناصر في سلة التسوق",
+    "total": "الإجمالي",
+    "emptyCart": "سلة التسوق فارغة",
     "fullName": "الاسم الكامل",
     "email": "البريد الإلكتروني",
     "address": "العنوان",
     "city": "المدينة",
-    "postalCode": "رمز بريدي",
-    "country": "الدولة",
-    "orderTotal": "إجمالي الطلب",
+    "postalCode": "الرمز البريدي",
+    "country": "البلد",
+    "processing": "جارٍ المعالجة…",
     "placeOrder": "إتمام الطلب",
-    "processing": "جاري المعالجة…",
-    "errorOccurred": "حدث خطأ. الرجاء المحاولة مرة أخرى."
+    "errorOccurred": "حدث خطأ",
+    "selectAddress": "اختر عنوانًا محفوظًا",
+    "addNewAddress": "إضافة عنوان جديد",
+    "cancel": "إلغاء",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "save": "حفظ"
+  },
+  "CartDrawer": {
+  "title": "سلة التسوق",
+  "empty": "سلة التسوق فارغة",
+  "quantity": "الكمية",
+  "total": "الإجمالي",
+  "checkout": "إتمام الطلب"
   }
-
 }

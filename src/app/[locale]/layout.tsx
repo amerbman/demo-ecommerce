@@ -1,30 +1,34 @@
-import type { ReactNode } from "react";
-import { NextIntlClientProvider } from "next-intl";
+// src/app/[locale]/layout.tsx
+import { ReactNode } from "react";
 import ClientLayout from "@/components/ClientLayout";
+import Providers from "@/components/Providers";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
-export interface Props {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+type LocaleLayoutProps = {
   children: ReactNode;
-  params: { locale: string };
-}
+  params: { locale: string }; // ✅ FIXED: Removed Promise<>
+};
 
-export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "ar" }];
-}
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutProps) {
+  const { locale } = params; // ✅ This is now correct
 
-export default async function LocaleLayout({ children, params }: Props) {
-  const { locale } = params;
+  if (!routing.locales.includes(locale as "en" | "ar")) {
+    notFound();
+  }
+
   const messages = (await import(`../../../messages/${locale}.json`)).default;
-  const isRtl = locale === "ar";
 
   return (
-    <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
-      <body>
-        <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Riyadh">
-          <ClientLayout>
-            {children}
-          </ClientLayout>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <Providers locale={locale} messages={messages}>
+      <ClientLayout>{children}</ClientLayout>
+    </Providers>
   );
 }

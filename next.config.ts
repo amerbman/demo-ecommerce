@@ -1,25 +1,12 @@
-// next.config.js
 const createNextIntlPlugin = require('next-intl/plugin');
 
 const withNextIntl = createNextIntlPlugin({
-  // Uses src/i18n/request.ts by default, no extra options needed
+  // Required if you use `/[locale]/...` routes
+  locales: ['en', 'ar'],
+  defaultLocale: 'en',
+  localePrefix: 'as-needed', // or 'always' if you force `/en`, `/ar`
 });
 
 module.exports = withNextIntl({
-  // Enable the App Router
-  
-  // Your other Next.js settings go here
-  eslint: {
-    // Warning: only use this if you really don’t care about linting errors in CI/prod
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    // WARNING: this skips _all_ TS errors during build
-    ignoreBuildErrors: true,
-  },
   reactStrictMode: true,
-  // Example: if you need custom webpack or images settings, add them below:
-  // images: {
-  //   domains: ['your-domain.com']
-  // },
 });

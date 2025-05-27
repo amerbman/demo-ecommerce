@@ -4,7 +4,8 @@
     "myAccount": "My Account",
     "logout": "Logout",
     "login": "Login",
-    "cart": "Cart"
+    "cart": "Cart",
+    "hello": "Hello"
   },
   "navbar": {
     "home": "Home",
@@ -21,14 +22,15 @@
     "register": "Register"
   },
   "hero": {
-    "title1": "Professional Cleaning",
+   "title1": "Professional Cleaning",
     "title2": "Tools for Spotless Homes",
     "description": "Discover our premium mops, brooms, and cleaning accessories designed to make your cleaning routine faster, easier, and more effective.",
     "cta": "Shop Now",
     "productTitle": "Microfiber Technology",
     "productDescription": "Super absorbent fibers for spotless cleaning.",
     "prev": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "shopLabel": "Shop Now" 
   },
   "footer": {
     "soldBy": "Sold and Distributed by SSBTE",
@@ -138,18 +140,15 @@
     }
   }
 },
-"order": {
-  "1234": {
-    "status": {
-      "shipped": "Shipped"
-    }
+"Orders": {
+    "title": "My Orders",
+    "orderId": "Order #",
+    "date": "Date",
+    "total": "Total",
+    "items": "Items",
+    "view": "View details",
+    "empty": "No orders found."
   },
-  "5678": {
-    "status": {
-      "processing": "Processing"
-    }
-  }
-},
 "productCard": {
   "addToCart": "Add to Cart"
 },
@@ -242,19 +241,33 @@
   "clearCart": "Clear cart",
   "checkout": "Proceed to Checkout"
 },
-"Checkout": {
+ "Checkout": {
     "title": "Checkout",
+    "itemsInCart": "Items in your cart",
+    "total": "Total",
+    "emptyCart": "Your cart is empty",
     "fullName": "Full Name",
-    "email": "Email Address",
-    "address": "Street Address",
+    "email": "Email",
+    "address": "Address",
     "city": "City",
     "postalCode": "Postal Code",
     "country": "Country",
-    "orderTotal": "Order Total",
-    "placeOrder": "Place Order",
     "processing": "Processing…",
-    "errorOccurred": "An error occurred. Please try again."
+    "placeOrder": "Place Order",
+    "errorOccurred": "An error occurred",
+    "selectAddress": "Select a saved address",
+    "addNewAddress": "Add New Address",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save"
+  },
+  "CartDrawer": {
+  "title": "Your Cart",
+  "empty": "Your cart is empty",
+  "quantity": "Qty",
+  "total": "Total",
+  "checkout": "Checkout"
   }
-
 
 }

@@ -1,3 +1,4 @@
+"use client";
 // src/context/CartContext.tsx
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
@@ -20,6 +21,10 @@ interface CartContextValue {
   clearCart: () => void;
   totalQuantity: number;
   totalPrice: number;
+  // Drawer controls
+  isOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
 }
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
@@ -27,6 +32,11 @@ const CartContext = createContext<CartContextValue | undefined>(undefined);
 // Provider component
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+
+  // Drawer open/close state
+  const [isOpen, setIsOpen] = useState(false);
+  const openCart = () => setIsOpen(true);
+  const closeCart = () => setIsOpen(false);
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -51,6 +61,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...item, quantity }];
     });
+    console.log("🛒 addItem fired, opening drawer");
+    openCart();
+    
   };
 
   const removeItem = (id: string) => {
@@ -74,7 +87,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem, updateItemQuantity, clearCart, totalQuantity, totalPrice }}
+      value={{
+        items,
+        addItem,
+        removeItem,
+        updateItemQuantity,
+        clearCart,
+        totalQuantity,
+        totalPrice,
+        isOpen,
+        openCart,
+        closeCart,
+      }}
     >
       {children}
     </CartContext.Provider>

@@ -1,122 +1,140 @@
 // src/app/[locale]/product/[id]/page.tsx
-"use client";
+import { createClient } from '@supabase/supabase-js';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+import Carousel from '@/components/Carousel';
+import AddToCartButton from '@/components/AddToCartButton';
 
-import { notFound } from "next/navigation";
-import productsData from "../../data/products.json";
-import type { Product } from "@/types/product";
-import Link from "next/link";
-import Carousel from "@/components/Carousel";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
-import { useCart } from "@/context/CartContext";
+// Initialize Supabase client for server-side
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
-export default function ProductPage() {
-  const t = useTranslations("Product");
-  const params = useParams() as { locale?: string; id?: string };
-  const locale = params.locale ?? "en";
-  const productId = params.id ?? "";
-  const { addItem } = useCart();
+interface Props {
+  params: { locale: string; id: string };
+}
 
-  // Treat flora as unknown and filter arrays
-  const floraRaw = productsData.flora as unknown;
-  const entries = Object.entries(floraRaw as Record<string, unknown>)
-    .filter(([, v]) => Array.isArray(v)) as [string, Product[]][];
+// Full product type from Supabase
+interface DBProduct {
+  name: string;
+  name_ar?: string;
+  description: string;
+  description_ar?: string;
+  price?: number;
+  in_stock: boolean;
+  images: string[];
+  category: string;
+  part_number: string;
+}
 
-  // Flatten products
-  const allProducts = entries.flatMap(([, arr]) => arr);
+// Related products subset
+interface RelatedProduct {
+  part_number: string;
+  name: string;
+  name_ar?: string;
+  price?: number;
+  images: string[];
+}
 
-  // Find selected product
-  const product = allProducts.find(p => p.id === productId);
-  if (!product) return notFound();
+export default async function ProductPage({ params }: Props) {
+  // Fetch main product
+  const res = await supabase
+    .from('products')
+    .select(
+      'name, name_ar, description, description_ar, price, in_stock, images, category, part_number'
+    )
+    .eq('part_number', params.id)
+    .single();
+  const productData = res.data as DBProduct | null;
+  if (!productData || res.error) {
+    return notFound();
+  }
 
-  // Related products in same category
-  const productCategory = entries.find(([, arr]) =>
-    Array.isArray(arr) && arr.some(p => p.id === product.id)
-  )?.[0];
-  const relatedProducts = productCategory
-    ? (entries.find(([k]) => k === productCategory)![1] as Product[])
-        .filter(p => p.id !== product.id)
-        .slice(0, 4)
-    : [];
+  // Fetch related products by category
+  const relRes = await supabase
+    .from('products')
+    .select('part_number, name, name_ar, price, images')
+    .eq('category', productData.category)
+    .neq('part_number', params.id)
+    .limit(4);
+  const related = (relRes.data as RelatedProduct[] | null) ?? [];
 
-  // Display fields based on locale
-  const displayName = locale === "ar" && product.name_ar ? product.name_ar : product.name;
-  const displayDesc = locale === "ar" && product.description_ar ? product.description_ar : product.description;
-
-  // Add to cart handler
-  const handleAddToCart = () => {
-    addItem(
-      {
-        id: product.id,
-        name: displayName,
-        price: product.price ?? 0,
-        image: product.image[0],
-      },
-      1
-    );
-  };
+  // Determine locale-specific fields
+  const displayName =
+    params.locale === 'ar' && productData.name_ar
+      ? productData.name_ar
+      : productData.name;
+  const displayDesc =
+    params.locale === 'ar' && productData.description_ar
+      ? productData.description_ar
+      : productData.description;
 
   return (
-    <main className="container mx-auto py-16 px-4">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Image Carousel */}
-        <div className="w-full h-60 lg:h-[32rem]">
-          <Carousel images={product.image} altText={displayName} />
-        </div>
-
-        {/* Product Info */}
-        <div className="flex flex-col space-y-4">
-          <h1 className="text-3xl font-bold">{displayName}</h1>
-          <p className="text-gray-600">{displayDesc || t("noDescription")}</p>
-          <p className="text-2xl font-semibold text-red-600">
-            ${(product.price ?? 0).toFixed(2)}
-          </p>
-          <p className={`font-medium ${product.in_stock ? "text-green-600" : "text-red-600"}`}>
-            {product.in_stock ? t("inStock") : t("outOfStock")}
-          </p>
-
-          <button
-            onClick={handleAddToCart}
-            className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded"
-          >
-            {t("addToCart")}
-          </button>
-          <Link href={`/${locale}/shop`} className="text-red-600 hover:underline mt-2 block">
-            ← {t("backToShop")}
-          </Link>
-
-          {/* Social Media Sharing */}
-          <div className="mt-6 space-x-4">
-            <p className="text-gray-500">{t("share")}</p>
-            <div className="flex space-x-2">
-              <button className="bg-blue-600 text-white px-2 py-1 rounded">Facebook</button>
-              <button className="bg-blue-400 text-white px-2 py-1 rounded">Twitter</button>
-              <button className="bg-red-500 text-white px-2 py-1 rounded">Instagram</button>
-            </div>
-          </div>
-        </div>
+    <main className="max-w-4xl mx-auto py-8 px-4">
+      <h1 className="text-3xl font-bold mb-4">{displayName}</h1>
+      <Carousel images={productData.images} altText={displayName} />
+      <p className="mt-4 text-gray-700">{displayDesc}</p>
+      <div className="mt-4 flex items-center space-x-4">
+        <span className="text-xl font-semibold">
+          {productData.price?.toFixed(2)} SAR
+        </span>
+        <span
+          className={`font-medium ${
+            productData.in_stock ? 'text-green-600' : 'text-red-600'
+          }`}
+        >
+          {productData.in_stock
+            ? params.locale === 'ar'
+              ? 'متوفر'
+              : 'In Stock'
+            : params.locale === 'ar'
+            ? 'نفذت الكمية'
+            : 'Out of Stock'}
+        </span>
       </div>
 
-      {/* Related Products */}
-      {relatedProducts.length > 0 && (
+      <AddToCartButton
+        partNumber={productData.part_number}
+        name={displayName}
+        price={productData.price ?? 0}
+        image={productData.images[0]}
+      />
+
+      <Link
+        href={`/${params.locale}/shop`}
+        className="inline-block mt-6 text-blue-600 hover:underline"
+      >
+        ← {params.locale === 'ar' ? 'عودة إلى المتجر' : 'Back to shop'}
+      </Link>
+
+      {related.length > 0 && (
         <section className="mt-12">
-          <h2 className="text-2xl font-bold">{t("relatedProducts")}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {relatedProducts.map(rel => {
-              const name = locale === "ar" && rel.name_ar ? rel.name_ar : rel.name;
+          <h2 className="text-2xl font-bold mb-4">
+            {params.locale === 'ar' ? 'منتجات ذات صلة' : 'Related Products'}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {related.map((rel) => {
+              const relName =
+                params.locale === 'ar' && rel.name_ar ? rel.name_ar : rel.name;
               return (
                 <Link
-                  key={rel.id}
-                  href={`/${locale}/product/${rel.id}`}
-                  className="block bg-white p-4 rounded shadow hover:shadow-lg"
+                  key={rel.part_number}
+                  href={`/${params.locale}/product/${rel.part_number}`}
+                  className="block border rounded-lg p-4 hover:shadow-lg"
                 >
                   <div className="relative w-full h-40 mb-2">
-                    <Image src={rel.image[0]} alt={name} fill className="object-contain" />
+                    <Image
+                      src={rel.images[0]}
+                      alt={relName}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                  <h3 className="text-lg font-semibold">{name}</h3>
+                  <h3 className="text-lg font-semibold">{relName}</h3>
                   <p className="text-gray-600">
-                    ${(rel.price ?? 0).toFixed(2)}
+                    {rel.price?.toFixed(2)} SAR
                   </p>
                 </Link>
               );
