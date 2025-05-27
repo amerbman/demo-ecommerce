@@ -1,4 +1,4 @@
-// src/app/api/orders/route.ts
+// File: src/app/api/orders/route.ts
 import { NextResponse } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
@@ -16,52 +16,46 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
     }
 
-    // 2) Look up an existing address for this user + exact same fields
-    const { data: existing, error: lookupErr } = await supabase
-      .from("addresses")
-      .select("id")
-      .match({
-        user_id:     user.id,
-        street:      shipping.address,
-        city:        shipping.city,
-        postal_code: shipping.postalCode,
-        country:     shipping.country,
-      })
-      .maybeSingle();
-
-    if (lookupErr) {
-      console.error("Address lookup error:", lookupErr);
-      return NextResponse.json({ error: lookupErr.message }, { status: 500 });
-    }
-
+    // 2) Resolve or Insert Address
+    // (same as before, using shipping.street, etc.)
     let addressId: string;
-    if (existing?.id) {
-      // reuse existing
-      addressId = existing.id;
-    } else {
-      // 3) insert new address
-      const { data: addr, error: addrErr } = await supabase
+    {
+      // Try lookup
+      const { data: existing, error: lookupErr } = await supabase
         .from("addresses")
-        .insert({
-          full_name:   shipping.fullName,
-          email:       shipping.email,
-          street:      shipping.address,
-          city:        shipping.city,
-          postal_code: shipping.postalCode,
-          country:     shipping.country,
-          user_id:     user.id,
-        })
         .select("id")
-        .single();
+        .match({
+          user_id:     user.id,
+          street:      shipping.street,
+          city:        shipping.city,
+          postal_code: shipping.postal_code,
+          country:     shipping.country,
+        })
+        .maybeSingle();
+      if (lookupErr) throw lookupErr;
 
-      if (addrErr || !addr) {
-        console.error("Address insert failed:", addrErr);
-        return NextResponse.json({ error: addrErr?.message }, { status: 500 });
+      if (existing?.id) {
+        addressId = existing.id;
+      } else {
+        const { data: addr, error: addrErr } = await supabase
+          .from("addresses")
+          .insert({
+            full_name:   shipping.full_name,
+            email:       shipping.email,
+            street:      shipping.street,
+            city:        shipping.city,
+            postal_code: shipping.postal_code,
+            country:     shipping.country,
+            user_id:     user.id,
+          })
+          .select("id")
+          .single();
+        if (addrErr || !addr) throw addrErr || new Error("Address insert failed");
+        addressId = addr.id;
       }
-      addressId = addr.id;
     }
 
-    // 4) insert the order row
+    // 3) Insert Order
     const { data: order, error: orderErr } = await supabase
       .from("orders")
       .insert({
@@ -71,34 +65,37 @@ export async function POST(req: Request) {
       })
       .select("id")
       .single();
+    if (orderErr || !order) throw orderErr || new Error("Order insert failed");
 
-    if (orderErr || !order) {
-      console.error("Order insert failed:", orderErr);
-      return NextResponse.json({ error: orderErr?.message }, { status: 500 });
-    }
+    // 4) Lookup product UUIDs by SKU
+    const skus = items.map((it: any) => it.part_number);
+    const { data: prods, error: prodErr } = await supabase
+      .from("products")
+      .select("id, part_number")
+      .in("part_number", skus);
+    if (prodErr) throw prodErr;
+    // Map SKU → UUID
+    const skuToUUID = Object.fromEntries(prods.map(p => [p.part_number, p.id]));
 
-    // 5) build and insert line items
+    // 5) Build line items array with real UUIDs
     const lineItems = items.map((it: any) => ({
-      order_id:   order.id,
-      product_id: it.id ?? it.part_number,
+      order_id:    order.id,
+      product_id:  skuToUUID[it.part_number],
       part_number: it.part_number,
-      quantity:   it.quantity,
-      unit_price: it.unit_price,
+      quantity:    it.quantity,
+      unit_price:  it.unit_price,
     }));
 
+    // 6) Insert line items
     const { error: itemsErr } = await supabase
       .from("order_items")
       .insert(lineItems);
+    if (itemsErr) throw itemsErr;
 
-    if (itemsErr) {
-      console.error("Order items insert failed:", itemsErr);
-      return NextResponse.json({ error: itemsErr.message }, { status: 500 });
-    }
-
-    // 6) All done
+    // 7) Success
     return NextResponse.json({ orderId: order.id }, { status: 201 });
   } catch (err: any) {
-    console.error("Unexpected error in /api/orders:", err);
+    console.error("❌ /api/orders error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
