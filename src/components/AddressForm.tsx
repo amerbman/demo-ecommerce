@@ -14,19 +14,17 @@ export interface Address {
 }
 
 interface AddressFormProps {
-  locale: string
   initialData: Address | null
   onSave: (data: Address) => Promise<void>
   onCancel: () => void
 }
 
-export default function AddressForm({ locale, initialData, onSave, onCancel }: AddressFormProps) {
+export default function AddressForm({ initialData, onSave, onCancel }: AddressFormProps) {
   const [data, setData] = useState<Address>(
     initialData ?? { full_name: '', email: '', street: '', city: '', postal_code: '', country: '' }
   )
   const [saving, setSaving] = useState(false)
 
-  // When initialData changes (edit vs new), reset form
   useEffect(() => {
     if (initialData) {
       setData(initialData)
@@ -111,5 +109,4 @@ export default function AddressForm({ locale, initialData, onSave, onCancel }: A
         </button>
       </div>
     </form>
-  )
-}
+)}

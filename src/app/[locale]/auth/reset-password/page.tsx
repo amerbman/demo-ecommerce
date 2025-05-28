@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter, useParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { createBrowserSupabaseClient } from '@/utils/supabase/client'
 
 export default function ResetPasswordPage() {
@@ -18,7 +18,7 @@ export default function ResetPasswordPage() {
     setSuccess(false)
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${location.origin}/${locale}/auth/update-password`
+      redirectTo: `${location.origin}/${locale}/auth/update-password`,
     })
 
     if (error) {
@@ -40,14 +40,11 @@ export default function ResetPasswordPage() {
           type="email"
           placeholder="Your email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           required
           className="w-full border rounded p-2"
         />
-        <button
-          type="submit"
-          className="w-full py-2 bg-blue-600 text-white rounded"
-        >
+        <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded">
           Send reset link
         </button>
       </form>

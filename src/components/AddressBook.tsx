@@ -6,15 +6,10 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressForm, { Address as AddressType } from './AddressForm'
 
-/**
- * Re-export AddressType so consumers can import Address from this module
- */
 export type Address = AddressType
 
 interface Props {
-  /** Show radio-select UI when in checkout */
   checkoutMode?: boolean
-  /** Fires when an address is selected (in checkout mode) */
   onSelect?: (address?: AddressType) => void
 }
 
@@ -48,6 +43,7 @@ export default function AddressBook({ checkoutMode = false, onSelect }: Props) {
 
   useEffect(() => {
     fetchAddresses()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale])
 
   // Create or update
@@ -139,7 +135,6 @@ export default function AddressBook({ checkoutMode = false, onSelect }: Props) {
       {/* Inline form for editing */}
       {editing && (
         <AddressForm
-          locale={locale}
           initialData={editing}
           onSave={saveAddress}
           onCancel={() => setEditing(null)}
@@ -149,7 +144,6 @@ export default function AddressBook({ checkoutMode = false, onSelect }: Props) {
       {/* Inline form for adding */}
       {!editing && showNew && (
         <AddressForm
-          locale={locale}
           initialData={null}
           onSave={saveAddress}
           onCancel={() => setShowNew(false)}

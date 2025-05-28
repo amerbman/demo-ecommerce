@@ -1,8 +1,9 @@
-// server‐component
+// src/app/[locale]/(protected)/layout.tsx
+export const dynamic = 'force-dynamic';
 import Link from 'next/link'
+import { ReactNode } from 'react'
 import { createServerSupabaseClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import { ReactNode } from 'react'
 import LogoutButton from '@/components/LogoutButton'
 
 interface Props {
@@ -24,7 +25,7 @@ export default async function ProtectedLayout({ children, params }: Props) {
   }
 
   // 2) inline labels
-  const labels = {
+  const labels: Record<'en' | 'ar', Record<string, string>> = {
     en: {
       account: 'Account',
       myOrders: 'My Orders',
@@ -41,44 +42,31 @@ export default async function ProtectedLayout({ children, params }: Props) {
       settings: 'الإعدادات',
       logout: 'تسجيل الخروج',
     },
-  }[locale]
+  }
+
+  const t = labels[locale]
 
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
       <aside className="w-64 bg-white border-r">
         <nav className="p-6 space-y-4">
-          <Link
-            href={`/${locale}/account`}
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            {labels.account}
+          <Link href={`/${locale}/account`} className="block text-gray-700 hover:text-blue-600">
+            {t.account}
           </Link>
-          <Link
-            href={`/${locale}/orders`}
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            {labels.myOrders}
+          <Link href={`/${locale}/orders`} className="block text-gray-700 hover:text-blue-600">
+            {t.myOrders}
           </Link>
-          <Link
-            href={`/${locale}/addresses`}
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            {labels.myAddresses}
+          <Link href={`/${locale}/addresses`} className="block text-gray-700 hover:text-blue-600">
+            {t.myAddresses}
           </Link>
-          <Link
-            href={`/${locale}/cards`}
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            {labels.savedCards}
+          <Link href={`/${locale}/cards`} className="block text-gray-700 hover:text-blue-600">
+            {t.savedCards}
           </Link>
-          <Link
-            href={`/${locale}/settings`}
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            {labels.settings}
+          <Link href={`/${locale}/settings`} className="block text-gray-700 hover:text-blue-600">
+            {t.settings}
           </Link>
-          <LogoutButton label={labels.logout} />
+          <LogoutButton label={t.logout} />
         </nav>
       </aside>
 
