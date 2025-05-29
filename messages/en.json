@@ -30,7 +30,17 @@
     "productDescription": "Super absorbent fibers for spotless cleaning.",
     "prev": "Previous",
     "next": "Next",
-    "shopLabel": "Shop Now" 
+    "shopLabel": "Shop Now" ,
+    "productTitle1": "Soft Bristle Brush",
+    "productDescription1": "Perfect for gentle exfoliation and makeup application.",
+    "productTitle2": "Eco Bamboo Brush",
+    "productDescription2": "Sustainably sourced for a greener beauty routine.",
+    "productTitle3": "Deluxe Powder Brush",
+    "productDescription3": "Fluffy and full coverage for a flawless finish.",
+    "productTitle4": "Precision Eye Brush",
+    "productDescription4": "For seamless eyeshadow blending and detail work.",
+    "productTitle5": "Contour Sculpt Brush",
+    "productDescription5": "Defines and enhances facial features with ease."
   },
   "footer": {
     "soldBy": "Sold and Distributed by SSBTE",
