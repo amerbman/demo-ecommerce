@@ -1,0 +1,48 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  @apply bg-white text-gray-900 dark:bg-black dark:text-gray-100;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="ltr"] body {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Custom Carousel Pagination Dots */
+.carousel .control-dots .dot {
+  @apply w-3 h-3 rounded-full transition duration-300 ease-in-out;
+  background-color: var(--color-inactive, #d1d5db);
+  opacity: 0.5;
+}
+
+.carousel .control-dots .dot:hover {
+  background-color: var(--color-hover, #f87171);
+}
+
+.carousel .control-dots .dot.selected {
+  background-color: var(--color-active, #dc2626);
+  opacity: 1;
+}

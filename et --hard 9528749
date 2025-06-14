@@ -1,0 +1,27 @@
+[33m9528749[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m deploy attempt 3
+[33m836f2de[m more refinments on address book and orders
+[33m8ba1561[m orders and database is up online with log in and register working perfectly
+[33mc9c715f[m completed cart, checkout, pagination, orders & tracking features
+[33m13537cb[m fix error 10
+[33m0fa3723[m fix error 9
+[33mf74e1ac[m fix error 8
+[33m998025c[m fix error 7
+[33m00718af[m fix error 6
+[33mcb5def0[m fix error 5
+[33m2355c2d[m fix error 4
+[33m8c58166[m fix error 3
+[33m1cb48c1[m fix: remove unused password var from register route
+[33m29c5ea1[m fix: resolve ESLint & TypeScript errors; update Link usage, types, and client directives
+[33m3129d2a[m fix: move use client directive to top of account page
+[33m35c7576[m fixed build error
+[33mb2576d1[m Add language toggle below cart button in Header component
+[33m5d4bea8[m Integrated multi-language support (English/Arabic) across components and pages. Updated UI texts and structured language JSON files.
+[33m9e726a0[m chore: wire up authentication and protected routes, scaffold orders/tracking, enhance header, and update roadmap
+[33m336b22d[m Integrate NProgress loading bar and update ProductDetail to display related products by ID
+[33m711ade8[m feat(BrandInfo): extract animation into BrandInfo component with retract effect, full-bleed layout and mobile gutter adjustments
+[33mfe78e98[m fixed header distributor logo and text
+[33maab174d[m built front page structure added all components and fixed mobile view
+[33mf0e6ec4[m fixed hamburger menu problem
+[33m7d8674a[m completed navbar static design
+[33me04b7d5[m Initial commit for Flora project
+[33m36c9c00[m Initial commit from Create Next App
