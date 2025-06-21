@@ -5,7 +5,8 @@
     "logout": "Logout",
     "login": "Login",
     "cart": "Cart",
-    "hello": "Hello"
+    "hello": "Hello",
+    "market": "Market"
   },
   "navbar": {
     "home": "Home",
@@ -63,7 +64,9 @@
     "email": "hello@cleantoolspro.com",
     "copyright": "© 2025 SALEH SAEED BAOTHMAN TRDE. All rights reserved.",
     "developedByPrefix": "Developed by",
-    "developerName": "Amer Baosman"
+    "developerName": "Amer Baosman",
+    "market": "Market"
+
   },
   "shopByCategory": {
     "heading": "Shop By Category",

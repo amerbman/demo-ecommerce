@@ -8,7 +8,7 @@ import { CartProvider } from "@/context/CartContext";
 config.autoAddCss = false;
 
 export const metadata = {
-  title: "Flora E-commerce",
+  title: "Demo-market",
   description: "Cleaning products for every need",
 };
 

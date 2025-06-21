@@ -6,7 +6,8 @@
     "logout": "تسجيل الخروج",
     "login": "تسجيل الدخول",
     "cart": "عربة التسوق",
-    "hello": "مرحبا"
+    "hello": "مرحبا",
+    "market": "السوق"
   },
   "navbar": {
     "home": "الرئيسية",
@@ -66,7 +67,8 @@
     "email":             "hello@cleantoolspro.com",
     "copyright":         "© 2025 صالح سعيد بعثمان تج. جميع الحقوق محفوظة.",
     "developedByPrefix": "تم التطوير بواسطة",
-    "developerName":     "عامر باعثمان"
+    "developerName":     "عامر باعثمان",
+    "market": "السوق"
   },
 
   

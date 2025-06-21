@@ -4,18 +4,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter, useParams } from 'next/navigation';
-import LogoFlora from './LogoFlora';
-import LogoFlosoft from './LogoFlosoft';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faBars, faUser, faStore } from '@fortawesome/free-solid-svg-icons';
 import { useTranslations } from 'next-intl';
 import { useCart } from '@/context/CartContext';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 
-
 const LocaleToggle = dynamic(() => import('@/components/LocaleToggle'), { ssr: false });
-
 const navItems = [
   { key: 'home', path: '' },
   { key: 'shop', path: 'shop' },
@@ -29,56 +24,47 @@ export default function Header() {
   const { locale } = useParams() as { locale?: string };
   const isRtl = locale === 'ar';
   const router = useRouter();
-  const { totalQuantity } = useCart();
-
+  const { totalQuantity, clearCart } = useCart();
   const supabase = useSupabaseClient();
   const user = useUser();
-  const { clearCart } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
-  // Close profile menu when clicking outside
   useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
         setProfileMenuOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
-    <>
-      <nav dir={isRtl ? 'rtl' : 'ltr'} className="bg-white shadow-md sticky top-0 z-50">
-        <div
-          className={[
-            'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-24',
-            isRtl ? 'flex flex-row-reverse' : 'flex flex-row',
-          ].join(' ')}
-        >
-          {/* Logos */}
-          <div className="flex flex-col items-center space-y-1">
-            <div className="flex items-center space-x-2">
-              <LogoFlora />
-              <LogoFlosoft />
-            </div>
-            <div className="flex items-center justify-center space-x-1 text-gray-600 text-xs">
-              <span>{t('header.soldBy')}</span>
-              <a
-                href="https://ssbte.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-red-600"
-              >
-                <Image src="/assets/ssbte_logo.svg" alt="SSBTE Logo" width={48} height={48} />
-              </a>
-            </div>
-          </div>
+    <nav dir={isRtl ? 'rtl' : 'ltr'} className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
 
-          {/* Desktop nav + profile + cart + language toggle */}
-          <div className="hidden md:flex items-center gap-x-6">
+        {/* Brand */}
+        <Link href={`/${locale}`} className="flex items-center">
+          <FontAwesomeIcon
+            icon={faStore}
+            className={`text-2xl text-red-600 ${isRtl ? 'ml-2' : 'mr-2'}`}
+          />
+          <span className="text-2xl font-bold text-gray-800">
+            {t('header.market')}
+          </span>
+        </Link>
+
+        {/* Nav Group */}
+        <div
+                className={
+                  `flex items-center gap-x-6 ` +
+                  (isRtl ? 'mr-auto' : 'ml-auto')
+                }
+>
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-x-6 rtl:space-x-reverse">
             {navItems.map(({ key, path }) => (
               <Link
                 key={key}
@@ -88,123 +74,113 @@ export default function Header() {
                 {t(`navbar.${key}`)}
               </Link>
             ))}
+          </div>
 
-            {/* Profile icon & menu */}
-            <div className="relative inline-block" ref={profileRef}>
-              <button
-                onClick={() => setProfileMenuOpen((o) => !o)}
-                className="text-gray-700 hover:text-red-600 flex items-center"
-              >
-                <FontAwesomeIcon icon={faUser} className="text-2xl" />
-                {user && (
-                  <span className={isRtl ? 'mr-2' : 'ml-2'}>
-                    {t('header.hello')}, {user.email}
-                  </span>
-                )}
-              </button>
-              {profileMenuOpen && (
-                <div className="absolute right-0 top-full mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-50">
-                  {user && (
-                    <Link
-                      href={`/${locale}/account`}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
+          {/* Profile Menu */}
+          <div className="relative gap-x-6 rtl:space-x-reverse" ref={profileRef}>
+            <button
+              onClick={() => setProfileMenuOpen(o => !o)}
+              className="flex items-center text-gray-700 hover:text-red-600"
+            >
+              <FontAwesomeIcon icon={faUser} className="text-2xl" />
+              {user && <span className={isRtl ? 'mr-2' : 'ml-2'}>{t('header.hello')}, {user.email}</span>}
+            </button>
+            {profileMenuOpen && (
+              <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-50">
+                {user ? (
+                  <>  
+                    <Link href={`/${locale}/account`} className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
                       {t('header.myAccount')}
                     </Link>
-                  )}
-                  {user ? (
                     <button
                       onClick={async () => {
                         await supabase.auth.signOut();
                         clearCart();
                         router.push(`/${locale}`);
                       }}
-                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
                     >
                       {t('header.logout')}
                     </button>
-                  ) : (
-                    <button
-                      onClick={() => router.push(`/${locale}/auth/login`)}
-                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      {t('header.login')}
-                    </button>
-                  )}
-                </div>
-              )}
-            </div>
-
-            {/* Cart */}
-            <button
-              onClick={() => router.push(`/${locale}/cart`)}
-              className="relative inline-flex items-center text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md font-medium"
-            >
-              <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-              {t('header.cart')}
-              <span className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                {totalQuantity}
-              </span>
-            </button>
-
-            {/* Language toggle */}
-            <LocaleToggle />
+                  </>
+                ) : (
+                  <button
+                    onClick={() => router.push(`/${locale}/auth/login`)}
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
+                  >
+                    {t('header.login')}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* Cart Button */}
           <button
-            onClick={() => setMobileOpen((o) => !o)}
-            className="md:hidden text-gray-700 hover:text-red-600"
+            onClick={() => router.push(`/${locale}/cart`)}
+            className="relative flex items-center bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium"
+          >
+            <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
+            {t('header.cart')}
+            <span className="absolute -top-2 -right-2 bg-gray-800 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs font-bold">
+              {totalQuantity}
+            </span>
+          </button>
+
+          {/* Locale Toggle */}
+          <LocaleToggle />
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileOpen(o => !o)}
+            className="md:hidden ml-2 text-gray-700 hover:text-red-600"
           >
             <FontAwesomeIcon icon={faBars} className="text-2xl" />
           </button>
         </div>
+      </div>
 
-        {/* Mobile menu panel */}
-        {mobileOpen && (
-          <div className="md:hidden p-4 space-y-2 bg-white shadow-lg">
-            {navItems.map(({ key, path }) => (
-              <Link
-                key={key}
-                href={`/${locale}/${path}`}
-                className="block text-gray-700 hover:text-red-600 font-medium transition"
-              >
-                {t(`navbar.${key}`)}
+      {/* Mobile Panel */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white p-4 space-y-2 shadow-lg">
+          {navItems.map(({ key, path }) => (
+            <Link
+              key={key}
+              href={`/${locale}/${path}`}
+              className="block text-gray-700 hover:text-red-600 font-medium"
+            >
+              {t(`navbar.${key}`)}
+            </Link>
+          ))}
+          <div className="border-t mt-2 pt-2" />
+          {user ? (
+            <>
+              <span className="block mb-2">{t('header.hello')}, {user.email}</span>
+              <Link href={`/${locale}/account`} className="block px-4 py-2 hover:bg-gray-100 text-gray-700">
+                {t('header.myAccount')}
               </Link>
-            ))}
-            <div className="border-t mt-2 pt-2" />
-            {user ? (
-              <>
-                <span className="block">
-                  {t('header.hello')}, {user.email}
-                </span>
-                <Link
-                  href={`/${locale}/account`}
-                  className="block text-gray-700 hover:text-red-600 font-medium"
-                >
-                  {t('header.myAccount')}
-                </Link>
-                <button
-                  onClick={async () => {
-                    await supabase.auth.signOut();
-                    router.push(`/${locale}`);
-                  }}
-                  className="block text-gray-700 hover:text-red-600 font-medium"
-                >
-                  {t('header.logout')}
-                </button>
-              </>
-            ) : (
               <button
-                onClick={() => router.push(`/${locale}/auth/login`)}
-                className="block text-gray-700 hover:text-red-600 font-medium"
+                onClick={async () => {
+                  await supabase.auth.signOut();
+                  router.push(`/${locale}`);
+                }}
+                className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
               >
-                {t('header.login')}
+                {t('header.logout')}
               </button>
-            )}
-          </div>
-        )}
-      </nav>
-    </>
+            </>
+          ) : (
+            <button
+              onClick={() => router.push(`/\${locale}/auth/login`)}
+              className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
+            >
+              {t('header.login')}
+            </button>
+          )}
+        </div>
+      )}
+    </nav>
   );
 }
+
+
