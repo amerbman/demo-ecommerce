@@ -1,16 +1,13 @@
 // src/app/[locale]/product/[id]/page.tsx
-import { createClient } from '@supabase/supabase-js';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import Carousel from '@/components/Carousel';
 import AddToCartButton from '@/components/AddToCartButton';
 
-// Initialize Supabase client for server-side
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+
 
 interface Props {
   params: { locale: string; id: string };
@@ -39,6 +36,9 @@ interface RelatedProduct {
 }
 
 export default async function ProductPage({ params }: Props) {
+  // Initialize Supabase client
+  const supabase = createServerComponentClient({ cookies });
+
   // Fetch main product
   const res = await supabase
     .from('products')
