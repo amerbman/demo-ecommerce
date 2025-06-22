@@ -1,0 +1,16 @@
+<!-- public/assets/waves.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="none">
+  <defs>
+    <style>
+      .wave1 { fill: var(--wave1, #fcd34d); }
+      .wave2 { fill: var(--wave2, #f59e0b); }
+      .wave3 { fill: var(--wave3, #d97706); }
+    </style>
+  </defs>
+  <!-- bottom wave -->
+  <path class="wave3" d="M0,300 C300,350 900,250 1200,300 L1200,400 L0,400 Z"></path>
+  <!-- middle wave -->
+  <path class="wave2" d="M0,250 C300,300 900,200 1200,250 L1200,400 L0,400 Z"></path>
+  <!-- top wave -->
+  <path class="wave1" d="M0,200 C300,250 900,150 1200,200 L1200,400 L0,400 Z"></path>
+</svg>

@@ -20,7 +20,7 @@ const WhyChoose: React.FC = () => {
   const t = useTranslations("whyChoose");
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-3xl lg:text-4xl font-extrabold mb-2">
           {t("heading")}
